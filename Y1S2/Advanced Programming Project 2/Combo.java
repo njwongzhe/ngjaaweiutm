@@ -97,7 +97,7 @@ public class Combo extends MenuItem {
         }
         
         while (true) {
-            System.out.printf("\nEnter MenuItem ID or Name (OR 'done' to Finish): ");
+            System.out.printf("\nEnter MenuItem ID or Name (or 'done' to finish): ");
             String input = read.nextLine().trim();
             
             if (input.toLowerCase().equals("done")) {

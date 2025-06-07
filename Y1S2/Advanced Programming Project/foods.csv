@@ -1,6 +1,42 @@
-Food,Chicken Burger,9.90,F1,Burgers,Ala Carte&#44; 1 Chicken Burger
-Food,Potato Wedges,6.70,F2,Snack,Perfectly crisp and golden brown potato wedges.
-Food,Cheesy Burger,10.90,F3,Burgers,Ala Carte&#44; 1 Cheesy Burger
-Food,c,5.00,F5,Burgers,
-Food,B,5.00,F6,Burgers,
-Food,NO,2.00,F4,Burgers,0
+Food,Chicken Burger,4.85,F1,Burger,Ala Carte&#44; 1 Chicken Burger
+Food,Hotouch Burger,7.35,F2,Burger,Ala Carte&#44; 1 Hotouch Burger
+Food,Tower Burger,9.85,F3,Burger,Ala Carte&#44; 1 Tower Burger
+Food,Fish Fillet Burger,6.85,F4,Burger,Ala Carte&#44; 1 Fish Fillet Burger
+Food,Lucky Plate,9.95,F5,Special,
+Food,Chich-A-Licious,11.20,F6,Special,
+Food,Chick-A-Mix,9.90,F7,Special,
+Food,Fish'n'Chips,11.90,F8,Special,
+Food,Nasi Marrybrown,7.85,F9,Classic,
+Food,Nasi Ayam MB,8.35,F10,Classic,
+Food,Mi Kari MB,7.55,F11,Classic,
+Food,Chicken Porridge,4.50,F12,Classic,
+Food,Seafood Porridge,5.50,F13,Classic,
+Food,MB Crispy Chicken,3.75,F14,Chicken,
+Food,MB Crispy Chicken x2,7.50,F15,Chicken,
+Food,MB Crispy Chicken x5,18.55,F16,Chicken,
+Food,MB Crispy Chicken x9,33.00,F17,Chicken,
+Food,MB Crispy Chicken x15,53.75,F18,Chicken,
+Food,Chicken Nuggets 6pcs,6.60,F19,Side Order,
+Food,Chicken Nuggets 12pcs,11.95,F20,Side Order,
+Food,Fish Nuggets 6pcs,6.60,F21,Side Order,
+Food,Fish Nuggets 12pcs,11.95,F22,Side Order,
+Food,Prawn Fingers 6pcs,6.60,F23,Side Order,
+Food,Prawn Fingers 12pcs,11.95,F24,Side Order,
+Food,Chicken Fillets,3.70,F25,Side Order,
+Food,Chick-A-Pops,6.60,F26,Side Order,
+Food,French Fries (R),3.45,F27,Side Order,
+Food,French Fries (L),4.40,F28,Side Order,
+Food,Mambo Fries (R),3.45,F29,Side Order,
+Food,Mashed Potato (R),2.40,F30,Side Order,
+Food,Mashed Potato (L),5.55,F31,Side Order,
+Food,Hawaiian Coleslaw (R),2.40,F32,Side Order,
+Food,Hawaiian Coleslaw (L),5.55,F33,Side Order,
+Food,Vegetable Salad (R),2.40,F34,Side Order,
+Food,Vegetable Salad (L),5.55,F35,Side Order,
+Food,Acar (R),2.40,F36,Side Order,
+Food,Acar (L),5.55,F37,Side Order,
+Food,Mushroom Soup,3.30,F38,Side Order,
+Food,Fragrant Rice,2.40,F39,Side Order,
+Food,MB Rice,2.40,F40,Side Order,
+Food,Bun,1.20,F41,Side Order,
+Food,Cheese,1.00,F42,Side Order,

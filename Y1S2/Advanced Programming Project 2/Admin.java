@@ -20,7 +20,7 @@ public class Admin {
         // Get name with duplicate check
         String name;
         while (true) {
-            System.out.printf("Enter Admin Name: ");
+            System.out.printf("Enter admin name: ");
             name = read.nextLine().trim();
             
             if (name.isEmpty()) {
@@ -39,7 +39,7 @@ public class Admin {
             
             if (exists) {
                 System.out.println("Username already exists! Please choose another.");
-                System.out.printf("Try Again? (y/n): ");
+                System.out.printf("Try again? (y/n): ");
                 if (!read.nextLine().toLowerCase().equals("y")) {
                     return null; // User chose not to retry
                 }

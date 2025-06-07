@@ -16,12 +16,11 @@ public class AdminMenu extends Menu{
         boolean loggedIn = false;
         while (!loggedIn) {
             System.out.println();
-            System.out.println("<Admin>");
             System.out.println("0. Exit");
             System.out.println("1. Admin Login");
             System.out.println("2. Admin Sign Up");
 
-            System.out.printf("Select an Option (0 - 2): ");
+            System.out.printf("Choose an option: ");
             String input = read.nextLine();
 
             switch (input) {
@@ -37,7 +36,7 @@ public class AdminMenu extends Menu{
                     adminMenu.signUp(read);
                     break;
                 default:
-                    System.out.println("\nInvalid option. Try again.");
+                    System.out.println("\nInvalid option. Try again.\n");
             }
         }
     
@@ -45,12 +44,12 @@ public class AdminMenu extends Menu{
     }
 
     private boolean login(Scanner read) {
-        System.out.printf("Enter Admin Name: ");
+        System.out.printf("Enter admin name: ");
         String name = read.nextLine();
 
         String password = Admin.readPasswordWithGUI();
         if (password == null) {
-            System.out.println("Password input cancelled.");
+            System.out.println("Password input cancelled.\n");
             return false;
         }
 
@@ -60,7 +59,7 @@ public class AdminMenu extends Menu{
                 return true;
             }
         }
-        System.out.println("Login failed. Invalid credentials.");
+        System.out.println("Login failed. Invalid credentials.\n");
         return false;
     }
 
@@ -91,14 +90,14 @@ public class AdminMenu extends Menu{
                 MenuItem.recycleMenuItemID(itemToDelete);
                 items.remove(i);
                 saveMenuItems();
-                System.out.println("Deleted.\n");
+                System.out.println("Deleted.");
                 found = true;
                 break;
             }
         }
 
         if(!found) {
-            System.out.println("Do not find the item you want to delete.\n");
+            System.out.println("Do not find the item you want to delete.");
         }
     }
 
@@ -124,34 +123,31 @@ public class AdminMenu extends Menu{
             System.out.println("1. Food");
             System.out.println("2. Drink");
             System.out.println("3. Combo");
-            System.out.printf("Select an Option (0 - 3): ");
+            System.out.printf("Enter choice: ");
             
             String choice = read.nextLine();
             MenuItem newItem = null;
             
             switch (choice) {
                 case "0":
-                    System.out.println("Cancelling item addition.\n");
+                    System.out.println("Cancelling item addition.");
                     return;
                 case "1":
-                    System.out.println();
                     newItem = Food.readFoodDetails(read);
                     break;
                 case "2":
-                    System.out.println();
                     newItem = Drink.readDrinkDetails(read);
                     break;
                 case "3":
-                    System.out.println();
                     newItem = Combo.readComboDetails(read, this.items);
                     break;
                 default:
-                    System.out.println("Invalid choice. Please try again.\n");
+                    System.out.println("Invalid choice. Please try again.");
                     return;
             }
             
             this.addItem(newItem);
-            System.out.println("\nItem successfully added!\n");
+            System.out.println("\nItem successfully added!");
         } catch (RuntimeException e) {
             System.out.println(e.getMessage());
         }
@@ -166,10 +162,6 @@ public class AdminMenu extends Menu{
         
         // Count occurrences of each menu item in all orders
         for (Order order : allOrders) {
-            if (order.getPaymentMethod().toLowerCase().equals("unpaid")) {
-                continue;
-            }
-
             for (OrderItem orderItem : order.getItems()) {
                 MenuItem item = orderItem.getMenuItem();
                 boolean found = false;
@@ -193,7 +185,7 @@ public class AdminMenu extends Menu{
         }
         
         if (popularItems.isEmpty()) {
-            System.out.println("\nNo orders found. No popular items to display.\n");
+            System.out.println("No orders found. No popular items to display.");
             return;
         }
         
@@ -215,12 +207,12 @@ public class AdminMenu extends Menu{
     }
 
     public void filterOrdersByDate(Scanner read) {
-        System.out.printf("\nEnter Date to Filter (dd-MM-yyyy): ");
+        System.out.printf("Enter date to filter (dd-MM-yyyy): ");
         String dateInput = read.nextLine();
         
         // Validate date format
         if (!dateInput.matches("\\d{2}-\\d{2}-\\d{4}")) {
-            System.out.println("Invalid date format. Please use dd-MM-yyyy format.\n");
+            System.out.println("Invalid date format. Please use dd-MM-yyyy format.");
             return;
         }
         
@@ -254,17 +246,17 @@ public class AdminMenu extends Menu{
         }
         
         if (!foundOrders) {
-            System.out.println("No orders found for this date.\n");
+            System.out.println("No orders found for this date.");
         }
     }
 
     public void generateDailySalesReport(Scanner read) {
-        System.out.printf("\nEnter Date For Sales report (dd-MM-yyyy): ");
+        System.out.printf("Enter date for sales report (dd-MM-yyyy): ");
         String dateInput = read.nextLine();
         
         // Validate date format
         if (!dateInput.matches("\\d{2}-\\d{2}-\\d{4}")) {
-            System.out.println("Invalid date format. Please use dd-MM-yyyy format.\n");
+            System.out.println("Invalid date format. Please use dd-MM-yyyy format.");
             return;
         }
         
@@ -295,7 +287,7 @@ public class AdminMenu extends Menu{
         }
         
         if (filteredOrders.isEmpty()) {
-            System.out.println("No orders found for this date.\n");
+            System.out.println("No orders found for this date.");
             return;
         }
         
@@ -384,14 +376,13 @@ public class AdminMenu extends Menu{
 
     @Override
     public void printMenuOption() {
-        System.out.println("<Admin>");
         super.printMenuOption();
-        System.out.println("4. Add Menu Item");
-        System.out.println("5. Remove Menu Item");
-        System.out.println("6. View Most Popular Items");
-        System.out.println("7. Filter Orders by Date");
-        System.out.println("8. Generate Daily Sales Report");
-        System.out.println("9. Manage Categories");
+        System.out.println("4. Add Menu Item.");
+        System.out.println("5. Remove Menu Item.");
+        System.out.println("6. View Most Popular Items.");
+        System.out.println("7. Filter Orders by Date.");
+        System.out.println("8. Generate Daily Sales Report.");
+        System.out.println("9. Manage Categories.");
     }
 }
 

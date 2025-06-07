@@ -48,7 +48,7 @@ public class CustomerMenu extends Menu {
         }
 
         if (unpaidOrder != null) {
-            System.out.println("Welcome back! Resuming previous order...\n");
+            System.out.println("Welcome Back! Resuming previous order...");
             this.order = unpaidOrder;
         } else {
             this.order = new Order(customer);
@@ -80,7 +80,7 @@ public class CustomerMenu extends Menu {
         System.out.println("\n===== Order Summary =====");
         ArrayList<OrderItem> items = order.getItems();
         if (items.isEmpty()) {
-            System.out.println("\nYour cart is empty. Nothing to pay for.\n");
+            System.out.println("Your cart is empty. Nothing to pay for.");
             return;
         }
 
@@ -116,11 +116,11 @@ public class CustomerMenu extends Menu {
             // Get payment selection
             int paymentChoice = 0;
             while (paymentChoice < 1 || paymentChoice > paymentMethods.length) {
-                System.out.print("Select Payment Method (1 - " + paymentMethods.length + "): ");
+                System.out.print("Select payment method (1-" + paymentMethods.length + "): ");
                 try {
                     paymentChoice = Integer.parseInt(read.nextLine());
                     if (paymentChoice < 1 || paymentChoice > paymentMethods.length) {
-                        System.out.println("Invalid choice! Please enter a number between 1 and " + paymentMethods.length + ".");
+                        System.out.println("Invalid choice! Please enter a number between 1 and " + paymentMethods.length);
                     }
                 } catch (NumberFormatException e) {
                     System.out.println("Please enter a valid number!");
@@ -135,7 +135,7 @@ public class CustomerMenu extends Menu {
 
         // Add order to customer's order list, then reset order once user has made payment
         customer.addOrder(order);
-        System.out.println("Payment successful. Thank you!\n");
+        System.out.println("Payment successful. Thank you!");
         order = new Order(customer);
         allOrders.add(order);  // Add the new order to the global list
         FileManager.saveOrders(allOrders, "orders.csv");
@@ -148,15 +148,15 @@ public class CustomerMenu extends Menu {
         printDivider('=');
         
         // Print order header
-        System.out.printf("Order ID       : %d\n", order.getOrderID());
-        System.out.printf("Customer Name  : %s\n", customer.getName().toUpperCase());
-        System.out.printf("Customer Phone : %s\n", customer.getPhone());
+        System.out.printf("Order ID      : %d\n", order.getOrderID());
+        System.out.printf("Customer Name : %s\n", customer.getName().toUpperCase());
+        System.out.printf("Customer Phone: %s\n", customer.getPhone());
         
         String[] dateTime = order.getDateTime().split(" ");
-        System.out.printf("Date           : %s\n", dateTime[0]);
-        System.out.printf("Time           : %s\n", dateTime[1]);
+        System.out.printf("Date          : %s\n", dateTime[0]);
+        System.out.printf("Time          : %s\n", dateTime[1]);
         System.out.println();
-        System.out.printf("Payment Method : %s\n", order.getPaymentMethod());
+        System.out.printf("Payment Method: %s\n", order.getPaymentMethod());
         System.out.println();
         
         printDivider('-');
@@ -250,12 +250,12 @@ public class CustomerMenu extends Menu {
     }
 
     public void addOrderItem(Scanner read) {
-        System.out.printf("\nEnter Item Name: ");
+        System.out.printf("Enter item name: ");
         String name = read.nextLine().trim();
         
         MenuItem item = findItemByName(name);
         if (item == null) {
-            System.out.println("Item Not Found: " + name + "\n");
+            System.out.println("Item not found: " + name);
             return;
         }
         
@@ -265,26 +265,26 @@ public class CustomerMenu extends Menu {
         String sideOrders = readSideOrders(read);
         addToOrder(item, quantity, sideOrders);
         
-        System.out.printf("Added %d x %s to your order.\n\n", quantity, item.getName());
+        System.out.printf("Added %d x %s to your order\n", quantity, item.getName());
     }
 
     private int readValidQuantity(Scanner read) {
         while (true) {
             try {
-                System.out.printf("Enter Quantity: ");
+                System.out.printf("Enter quantity: ");
                 int quantity = Integer.parseInt(read.nextLine());
                 if (quantity > 0) {
                     return quantity;
                 }
-                System.out.println("Quantity must be greater than 0!");
+                System.out.println("Quantity must be greater than 0");
             } catch (NumberFormatException e) {
-                System.out.println("Please enter a valid number!");
+                System.out.println("Please enter a valid number");
             }
         }
     }
 
     private String readSideOrders(Scanner read) {
-        System.out.printf("Any Side Orders or Instructions? (Press Enter for None): ");
+        System.out.printf("Any side orders or instructions? (Press Enter for none): ");
         String input = read.nextLine().trim();
         return input.isEmpty() ? "No additional remarks" : input;
     }
@@ -298,14 +298,14 @@ public class CustomerMenu extends Menu {
     public void viewOrder() {
         ArrayList<OrderItem> items = order.getItems();
         if (items.isEmpty()) {
-            System.out.println("\nYour cart is empty.\n");
+            System.out.println("Your cart is empty.");
             return;
         }
-        System.out.println("\n===== Your Cart =====");
+        System.out.println("===== Your Cart =====");
         for (OrderItem orderItem : items) {
             System.out.println("- " + orderItem.getMenuItem().getName() + " x" + orderItem.getQuantity() + " [" + orderItem.getSideOrders() + "] = RM" + String.format("%.2f", orderItem.getSubTotal()));
         }
-        System.out.printf("Total: RM%.2f\n\n", order.getTotal());
+        System.out.printf("Total: RM%.2f\n", order.getTotal());
     }
 
     public Order getOrder() {
@@ -327,11 +327,10 @@ public class CustomerMenu extends Menu {
 
     @Override
     public void printMenuOption() {
-        System.out.println("<Customer>");
         super.printMenuOption();
-        System.out.println("4. View Existing Order Cart");
-        System.out.println("5. Add Item into Order Cart");
-        System.out.println("6. Remove Item from Order Cart");
-        System.out.println("7. Make Payment");
+        System.out.println("4. View Existing Order Cart.");
+        System.out.println("5. Add Item into Order Cart.");
+        System.out.println("6. Remove Item from Order Cart.");
+        System.out.println("7. Make payment.");
     }
 }

@@ -143,9 +143,9 @@ public abstract class MenuItem {
                 if (value >= min && value <= max) {
                     return value;
                 }
-                System.out.printf("Please Enter a Value Between %d and %d: ", min, max);
+                System.out.printf("Please enter a value between %d and %d: ", min, max);
             } catch (NumberFormatException e) {
-                System.out.printf("Invalid Input. Please Enter a Number: ");
+                System.out.printf("Invalid input. Please enter a number: ");
             }
         }
     }
@@ -157,9 +157,9 @@ public abstract class MenuItem {
                 if (value >= min && value <= max) {
                     return value;
                 }
-                System.out.printf("Please Enter a Value Between %.2f and %.2f: ", min, max);
+                System.out.printf("Please enter a value between %.2f and %.2f: ", min, max);
             } catch (NumberFormatException e) {
-                System.out.printf("Invalid Input. Please Enter a Number: ");
+                System.out.printf("Invalid input. Please enter a number: ");
             }
         }
     }
@@ -180,7 +180,7 @@ public abstract class MenuItem {
     protected static void readCommonDetails(MenuItem item, Scanner read) {
         // Read name with duplicate check
         while (true) {
-            System.out.printf("Enter Item Name: ");
+            System.out.printf("Enter item name: ");
             String name = read.nextLine().trim();
             
             if (name.isEmpty()) {
@@ -190,9 +190,9 @@ public abstract class MenuItem {
             
             if (isNameDuplicate(name)) {
                 System.out.println("An item with this name already exists!");
-                System.out.printf("\nDo You Want to Try a Different Name? (y/n): ");
+                System.out.printf("Do you want to try a different name? (y/n): ");
                 if (!read.nextLine().toLowerCase().equals("y")) {
-                    throw new RuntimeException("Item creation cancelled due to duplicate name.\n");
+                    throw new RuntimeException("Item creation cancelled due to duplicate name");
                 }
                 continue;
             }
@@ -202,7 +202,7 @@ public abstract class MenuItem {
         }
         
         // Read price
-        System.out.printf("Enter Item Price: ");
+        System.out.printf("Enter item price: ");
         item.setPrice(readValidDouble(read, 0, Double.MAX_VALUE));
     }
 

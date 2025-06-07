@@ -9,7 +9,7 @@ public class FileManager {
                 bw.newLine();
             }
         } catch (IOException e) {
-            System.out.println("Error Saving Admins: " + e.getMessage());
+            System.out.println("Error saving admins: " + e.getMessage());
         }
     }
 
@@ -24,7 +24,7 @@ public class FileManager {
                 }
             }
         } catch (IOException e) {
-            System.out.println("Error Loading Admins: " + e.getMessage());
+            System.out.println("Error loading admins: " + e.getMessage());
         }
         return admins;
     }
@@ -36,7 +36,7 @@ public class FileManager {
                 bw.newLine();
             }
         } catch (IOException e) {
-            System.out.println("Error Saving Customers: " + e.getMessage());
+            System.out.println("Error saving customers: " + e.getMessage());
         }
     }
 
@@ -49,7 +49,7 @@ public class FileManager {
                 if (c != null) customers.add(c);
             }
         } catch (IOException e) {
-            System.out.println("Error Loading Customers: " + e.getMessage());
+            System.out.println("Error loading customers: " + e.getMessage());
         }
 
         ArrayList<MenuItem> menuItems = new ArrayList<MenuItem>();
@@ -79,7 +79,7 @@ public class FileManager {
                 bw.newLine();
             }
         } catch (IOException e) {
-            System.out.println("Error Saving Orders: " + e.getMessage());
+            System.out.println("Error saving orders: " + e.getMessage());
         }
     }
 
@@ -102,7 +102,7 @@ public class FileManager {
             }
             Order.initializeIDGenerator(orders);
         } catch (IOException e) {
-            System.out.println("Error Loading Orders: " + e.getMessage());
+            System.out.println("Error loading orders: " + e.getMessage());
         }
         return orders;
     }
@@ -114,7 +114,7 @@ public class FileManager {
                 bw.newLine();
             }
         } catch (IOException e) {
-            System.out.println("Error Saving Foods: " + e.getMessage());
+            System.out.println("Error saving foods: " + e.getMessage());
         }
     }
 
@@ -149,7 +149,7 @@ public class FileManager {
                 bw.newLine();
             }
         } catch (IOException e) {
-            System.out.println("Error Saving Drinks: " + e.getMessage());
+            System.out.println("Error saving drinks: " + e.getMessage());
         }
     }
 
@@ -184,7 +184,7 @@ public class FileManager {
                 bw.newLine();
             }
         } catch (IOException e) {
-            System.out.println("Error Saving Combos: " + e.getMessage());
+            System.out.println("Error saving combos: " + e.getMessage());
         }
     }
 

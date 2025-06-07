@@ -4,16 +4,11 @@ public class MainSystem {
     public static void main(String [] args) {
         boolean startProgram = true;
         Scanner read = new Scanner(System.in);
-        while(startProgram) {
-            try {
-                Menu menu = Menu.readAccessType(read);
-                if (menu == null) continue; 
-                startProgram = menu.readMenuOption(read);
-            } catch (Exception e) {
-                System.out.println("\nAn error occurred: " + e.getMessage());
-                System.out.println("Restarting...\n");
-            }
-        } 
+        do{
+            Menu menu = Menu.readAccessType(read);
+            startProgram = menu.readMenuOption(read);
+        } while(startProgram);
+        
         read.close();
     }
 }

@@ -14,7 +14,6 @@ public class Menu {
     public void printMenuItems() {
         System.out.println();
         System.out.println("==================== MENU ====================");
-        System.out.println();
         for(MenuItem item : items) {
             System.out.println(item.getMenuItemID() + ". " + item.getName() + String.format(" - RM%.2f", item.getPrice()));
             item.printDescription();
@@ -36,7 +35,7 @@ public class Menu {
     public void showItemByName(String name) {
         boolean result = false;
         
-        System.out.println("\n==============================================\n");
+        System.out.println("\n==============================================");
         for(MenuItem item : items) {
             if(item.getName().toLowerCase().startsWith(name.toLowerCase())) {
                 System.out.println(item.getMenuItemID() + ". " + item.getName() + String.format(" - RM%.2f", item.getPrice()));
@@ -47,7 +46,7 @@ public class Menu {
         }
 
         if(!result) {
-            System.out.println("No items found that start with \"" + name + "\".\n");
+            System.out.println("No items found that start with \"" + name + "\".");
         }
         System.out.println("==============================================\n");
     }
@@ -76,9 +75,8 @@ public class Menu {
         }
 
         boolean found = false;
-        System.out.println("\n============================\n"); 
-        System.out.println("Items in Category: " + category);
-        System.out.println();
+        System.out.println("\nItems in category: " + category);
+        System.out.println("============================");
         
         for (MenuItem item : items) {
             String itemCategory = null;
@@ -103,19 +101,19 @@ public class Menu {
         if (!found) {
             System.out.println("No items found in category \"" + category + "\".\n");
         }
-        System.out.println("============================\n");
+        System.out.println("============================");
     }
 
     public static Menu readAccessType(Scanner read) {
         System.out.println("--- Welcome to Group 8 Fast Food Order Record Management System ---");
         System.out.println("                      Make Your Day With Food!                     ");
-        System.out.println("Who Are You?");
-        System.out.println("1. Customer");
-        System.out.println("2. Admin");
+        System.out.println("Please select your access type.");
+        System.out.println("1. Customer.");
+        System.out.println("2. Admin.");
         
         int choice = 0;
         do {
-            System.out.printf("Select an Option (1 - 2): ");
+            System.out.printf("Enter your choice (1 - 2): ");
             try {
                 choice = Integer.parseInt(read.nextLine());
                 if (choice != 1 && choice != 2) {
@@ -136,10 +134,10 @@ public class Menu {
     }
 
     public void printMenuOption() {
-        System.out.println("0. Log Out");
-        System.out.println("1. Show Menu");
-        System.out.println("2. Search Item");
-        System.out.println("3. Filter Item by Category");
+        System.out.println("0. Log out.");
+        System.out.println("1. Show Menu.");
+        System.out.println("2. Search Item.");
+        System.out.println("3. Filter by Category.");
     }
 
     public boolean readMenuOption(Scanner read) {
@@ -148,11 +146,11 @@ public class Menu {
             this.printMenuOption();
 
             if (this instanceof AdminMenu) {
-                System.out.printf("Enter Your Choice (0 - 9): ");
+                System.out.printf("Enter your choice (0 - 9): ");
                 try {
                     choice = Integer.parseInt(read.nextLine());
                     if (choice < 0 || choice > 9) {
-                    System.out.println("\nOnly inputs (0 - 9) are accepted. Please try again.\n");
+                    System.out.println("Only inputs (0 - 9) are accepted. Please try again.");
                     continue;
                     }
                 } catch(NumberFormatException e) {
@@ -167,13 +165,13 @@ public class Menu {
                         this.printMenuItems();
                         break;
                     case 2:
-                        System.out.printf("\nEnter the Item Name You Want to Find: ");
+                        System.out.printf("\nEnter the item name you want to find: ");
                         String findingName = read.nextLine();
                         this.showItemByName(findingName);
                         break;
                     case 3:
                         CategoryManager.printCategories();
-                        System.out.printf("\nEnter the Item Category Number or Name You Want to Find: ");
+                        System.out.printf("Enter the item category number or name you want to find: ");
                         String category = read.nextLine();
                         this.getItemByCategory(category);
                         break;
@@ -181,7 +179,7 @@ public class Menu {
                         ((AdminMenu)this).readAddItem(read);  
                         break;
                     case 5: 
-                        System.out.printf("\nEnter Item Name to Remove: ");
+                        System.out.printf("Enter item name to remove: ");
                         String removeName = read.nextLine();
                         ((AdminMenu) this).removeItem(removeName);
                         break;
@@ -201,11 +199,11 @@ public class Menu {
                         System.out.println("Invalid choice.");
                 }
             } else if (this instanceof CustomerMenu) {
-                System.out.printf("Enter Your Choice (0 - 7): ");
+                System.out.printf("Enter your choice (0 - 7): ");
                 try {
                     choice = Integer.parseInt(read.nextLine());
                     if (choice < 0 || choice > 7) {
-                    System.out.println("\nOnly inputs (0 - 7) are accepted. Please try again.\n");
+                    System.out.println("Only inputs (0 - 7) are accepted. Please try again.");
                     continue;
                     }
                 } catch(NumberFormatException e) {
@@ -220,13 +218,13 @@ public class Menu {
                         this.printMenuItems();
                         break;
                     case 2:
-                        System.out.printf("\nEnter the Item Name You Want to Find: ");
+                        System.out.printf("Enter the item name you want to find: ");
                         String findingName = read.nextLine();
                         this.showItemByName(findingName);
                         break;
                     case 3:
                         CategoryManager.printCategories();
-                        System.out.printf("\nEnter the Item Category Number or Name You Want to Find: ");
+                        System.out.printf("Enter the item category number or name you want to find: ");
                         String category = read.nextLine();
                         this.getItemByCategory(category);
                         break;
@@ -238,15 +236,15 @@ public class Menu {
                         break;
                     case 6:
                         ((CustomerMenu) this).viewOrder();  // Show current cart items
-                        System.out.printf("Enter the Item Name to Remove From the Cart: ");
+                        System.out.printf("Enter the item name to remove from the cart: ");
                         String removeName = read.nextLine();
 
                         boolean removed = ((CustomerMenu) this).removeFromOrder(removeName);
 
                         if (removed) {
-                            System.out.println("Item removed from the order cart.\n");
+                            System.out.println("Item removed from the order cart.");
                         } else {
-                            System.out.println("Item not found in the order cart.\n");
+                            System.out.println("Item not found in the order cart.");
                         }
                         break;
                     case 7: 

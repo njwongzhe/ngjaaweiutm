@@ -61,7 +61,7 @@ public class Customer {
         String name;
         while (true) {
             System.out.println();
-            System.out.printf("Enter Your Name: ");
+            System.out.printf("Enter your name: ");
             name = read.nextLine().trim();
             
             if (name == null || name.isEmpty()) {
@@ -77,11 +77,11 @@ public class Customer {
 
         String phone;
         while (true) {
-            System.out.printf("Enter Your Phone Number: ");
+            System.out.printf("Enter your phone number: ");
             String input = read.nextLine();
             
             if (input == null || input.trim().isEmpty()) {
-                System.out.println("Phone number cannot be empty!\n");
+                System.out.println("Phone number cannot be empty!");
                 continue;
             }
             
@@ -89,11 +89,10 @@ public class Customer {
             phone = input.replaceAll("[^0-9]", "");
             
             if (phone.length() < 9) {
-                System.out.println("Phone number too short! Please enter at least 9 digits.\n");
+                System.out.println("Phone number too short! Please enter at least 9 digits.");
             } else if (phone.length() > 15) {
-                System.out.println("Phone number too long! Maximum 15 digits allowed.\n");
+                System.out.println("Phone number too long! Maximum 15 digits allowed.");
             } else {
-                System.out.println(); 
                 break; // Valid phone number
             }
         }
@@ -105,8 +104,8 @@ public class Customer {
     }
 
     public void printCustomerInfo() {
-        System.out.println("Customer Name         : " + this.name);
-        System.out.println("Customer Phone Number : " + this.phone);
+        System.out.println("Customer Name          : " + this.name);
+        System.out.println("Customer Phone Number  : " + this.phone);
     }
 
     @Override

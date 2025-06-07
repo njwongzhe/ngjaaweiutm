@@ -59,7 +59,7 @@ public class CategoryManager {
             }
             writer.close();
         } catch (IOException e) {
-            System.out.println("Error Saving Food Categories: " + e.getMessage());
+            System.out.println("Error saving food categories: " + e.getMessage());
         }
     }
 
@@ -72,7 +72,7 @@ public class CategoryManager {
             }
             writer.close();
         } catch (IOException e) {
-            System.out.println("Error Saving Drink Categories: " + e.getMessage());
+            System.out.println("Error saving drink categories: " + e.getMessage());
         }
     }
 
@@ -111,10 +111,12 @@ public class CategoryManager {
 
         System.out.println("\n========== Combo ===========");
         System.out.printf("%d. Combo\n", foodCategories.size() + drinkCategories.size() + 1);
+
+        System.out.println("\n============================");
     }
 
     public static boolean addFoodCategory(Scanner read) {
-        System.out.printf("Enter New Food Category Name: ");
+        System.out.printf("Enter new food category name: ");
         String newCategory = read.nextLine().trim();
         
         if (newCategory.isEmpty()) {
@@ -137,7 +139,7 @@ public class CategoryManager {
     }
 
     public static boolean addDrinkCategory(Scanner read) {
-        System.out.printf("Enter New Drink Category Name: ");
+        System.out.printf("Enter new drink category name: ");
         String newCategory = read.nextLine().trim();
         
         if (newCategory.isEmpty()) {
@@ -161,7 +163,7 @@ public class CategoryManager {
 
     public static boolean removeFoodCategory(Scanner read, ArrayList<MenuItem> menuItems) {
         printFoodCategories();
-        System.out.printf("\nEnter Category Number to Remove (0 to Cancel): ");
+        System.out.printf("Enter category number to remove (0 to cancel): ");
         try {
             int choice = Integer.parseInt(read.nextLine());
             if (choice == 0) return false;
@@ -198,7 +200,7 @@ public class CategoryManager {
 
     public static boolean removeDrinkCategory(Scanner read, ArrayList<MenuItem> menuItems) {
         printDrinkCategories();
-        System.out.printf("\nEnter Category Number to Remove (0 to Cancel): ");
+        System.out.printf("Enter category number to remove (0 to cancel): ");
         try {
             int choice = Integer.parseInt(read.nextLine());
             if (choice == 0) return false;
@@ -236,13 +238,13 @@ public class CategoryManager {
     public static String selectFoodCategory(Scanner read) {
         while (true) {
             printFoodCategories();
-            System.out.printf("Select Food Category Number (OR 0 to Enter Custom Category): ");
+            System.out.printf("Select food category number (or 0 to enter custom category): ");
             String input = read.nextLine();
             
             try {
                 int choice = Integer.parseInt(input);
                 if (choice == 0) {
-                    System.out.printf("Enter Custom Food Category Name: ");
+                    System.out.printf("Enter custom food category name: ");
                     String customCategory = read.nextLine().trim();
                     if (!customCategory.isEmpty()) {
                         // Check if already exists (non-case sensitive)
@@ -290,13 +292,13 @@ public class CategoryManager {
     public static String selectDrinkCategory(Scanner read) {
         while (true) {
             printDrinkCategories();
-            System.out.printf("Select Drink Category Number (OR 0 to Enter Custom Category): ");
+            System.out.printf("Select drink category number (or 0 to enter custom category): ");
             String input = read.nextLine();
             
             try {
                 int choice = Integer.parseInt(input);
                 if (choice == 0) {
-                    System.out.printf("Enter Custom Drink Category Name: ");
+                    System.out.printf("Enter custom drink category name: ");
                     String customCategory = read.nextLine().trim();
                     if (!customCategory.isEmpty()) {
                         // Check if already exists (non-case sensitive)
@@ -344,16 +346,15 @@ public class CategoryManager {
     public static void manageCategories(Scanner read) {
         while (true) {
             System.out.println("\n===== Manage Categories =====");
-            System.out.println("0. Back to Main Menu");
+            System.out.println("0. Back to main menu");
             System.out.println("1. Manage Food Categories");
             System.out.println("2. Manage Drink Categories");
-            System.out.printf("Select an Option (0 - 2): ");
+            System.out.printf("Choose an option: ");
             
             String choice = read.nextLine();
             
             switch (choice) {
                 case "0":
-                    System.out.println();
                     return;
                 case "1":
                     manageFoodCategories(read);
@@ -371,10 +372,10 @@ public class CategoryManager {
         while (true) {
             System.out.println("\n===== Manage Food Categories =====");
             System.out.println("0. Back");
-            System.out.println("1. View All Food Categories");
-            System.out.println("2. Add New Food Category");
-            System.out.println("3. Remove Food Category");
-            System.out.printf("Select an Option (0 - 3): ");
+            System.out.println("1. View all food categories");
+            System.out.println("2. Add new food category");
+            System.out.println("3. Remove food category");
+            System.out.printf("Choose an option: ");
             
             String choice = read.nextLine();
             
@@ -401,10 +402,10 @@ public class CategoryManager {
         while (true) {
             System.out.println("\n===== Manage Drink Categories =====");
             System.out.println("0. Back");
-            System.out.println("1. View All Drink Categories");
-            System.out.println("2. Add New Drink Category");
-            System.out.println("3. Remove Drink Category");
-            System.out.printf("Select an Option (0 - 3): ");
+            System.out.println("1. View all drink categories");
+            System.out.println("2. Add new drink category");
+            System.out.println("3. Remove drink category");
+            System.out.printf("Choose an option: ");
             
             String choice = read.nextLine();
             

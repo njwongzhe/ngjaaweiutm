@@ -45,8 +45,8 @@ public class Food extends MenuItem {
 
     @Override
     public void printDescription() {
-        System.out.println("Category    : " + category);
-        System.out.println("Description : " + description);
+        System.out.println("Category: " + category);
+        System.out.println("Description: " + description);
     }
 
     public static Food fromCSVString(String[] parts) {
@@ -68,10 +68,11 @@ public class Food extends MenuItem {
         readCommonDetails(food, read);
         
         // Read category
+        System.out.println("Select category:");
         food.setCategory(CategoryManager.selectFoodCategory(read));
 
         // Food-specific details
-        System.out.print("Enter Food Description: ");
+        System.out.print("Enter food description: ");
         food.setDescription(read.nextLine().trim());
         
         return food;

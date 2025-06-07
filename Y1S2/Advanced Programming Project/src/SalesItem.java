@@ -1,4 +1,5 @@
 package src;
+
 public class SalesItem {
     String name;
     int quantity;

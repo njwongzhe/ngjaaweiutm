@@ -358,7 +358,7 @@ public class AdminMenu extends Menu{
                         remaining = remaining.length() > maxLength ? remaining.substring(maxLength) : "";
                     }
                 } else {
-                    System.out.printf("%-8s %-33s %11d %14.2f\n", i + 1, itemName, item.quantity, item.total);
+                    System.out.printf("%-8s %-33s %11d %14.2f\n", item.itemID, itemName, item.quantity, item.total);  
                 }
             }
             

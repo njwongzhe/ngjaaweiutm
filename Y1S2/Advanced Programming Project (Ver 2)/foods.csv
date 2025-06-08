@@ -1,8 +1,8 @@
-Food,Chicken Burger,4.85,F1,Burger,Ala Carte&#44; 1 Chicken Burger,1
-Food,Hotouch Burger,7.35,F2,Burger,Ala Carte&#44; 1 Hotouch Burger,1
-Food,Tower Burger,9.85,F3,Burger,Ala Carte&#44; 1 Tower Burger,1
-Food,Fish Fillet Burger,6.85,F4,Burger,Ala Carte&#44; 1 Fish Fillet Burger, 1
-Food,Lucky Plate,9.95,F5,Special,Ala Carte&#44; 1 Lucky Plate,1
+Food,Chicken Burger,4.85,F1,Burger,1 x Chicken Burger,1
+Food,Hotouch Burger,7.35,F2,Burger,1 x Hotouch Burger,1
+Food,Tower Burger,9.85,F3,Burger,1 x Tower Burger,1
+Food,Fish Fillet Burger,6.85,F4,Burger,1 x Fish Fillet Burger,1
+Food,Lucky Plate,9.95,F5,Special,,1
 Food,Chich-A-Licious,11.20,F6,Special,,1
 Food,Chick-A-Mix,9.90,F7,Special,,1
 Food,Fish'n'Chips,11.90,F8,Special,,1

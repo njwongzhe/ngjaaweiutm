@@ -129,12 +129,6 @@ public class FileManager {
                     foods.add(food);
                     MenuItem.getAllMenuItems().add(food); // Add to global list
                 }
-                // Convert to MenuItem list, sort, then convert back
-                ArrayList<MenuItem> sorted = sortMenuItems(new ArrayList<MenuItem>(foods));
-                foods.clear();
-                for (MenuItem item : sorted) {
-                    foods.add((Food)item);
-                }
             }
         } catch (IOException e) {
             System.out.println("Error loading foods: " + e.getMessage());
@@ -163,12 +157,6 @@ public class FileManager {
                 if (drink != null) {
                     drinks.add(drink);
                     MenuItem.getAllMenuItems().add(drink); // Add to global list
-                }
-                // Convert to MenuItem list, sort, then convert back
-                ArrayList<MenuItem> sorted = sortMenuItems(new ArrayList<MenuItem>(drinks));
-                drinks.clear();
-                for (MenuItem item : sorted) {
-                    drinks.add((Drink)item);
                 }
             }
         } catch (IOException e) {
@@ -199,12 +187,6 @@ public class FileManager {
                     combos.add(combo);
                     MenuItem.getAllMenuItems().add(combo);
                 }
-                // Convert to MenuItem list, sort, then convert back
-                ArrayList<MenuItem> sorted = sortMenuItems(new ArrayList<MenuItem>(combos));
-                combos.clear();
-                for (MenuItem item : sorted) {
-                    combos.add((Combo)item);
-                }
             }
         } catch (IOException e) {
             System.out.println("Error loading combos: " + e.getMessage());
@@ -214,31 +196,5 @@ public class FileManager {
 
     public static void initializeMenuIDs() {
         MenuItem.initializeIDGenerator(MenuItem.getAllMenuItems());
-    }
-
-    private static ArrayList<MenuItem> sortMenuItems(ArrayList<MenuItem> items) {
-        ArrayList<MenuItem> sortedItems = new ArrayList<MenuItem>();
-        
-        int maxID = 0;
-        
-        // First find the maximum ID number
-        for (MenuItem item : items) {
-            int currentID = Integer.parseInt(item.getMenuItemID().substring(1));
-            if (currentID > maxID) {
-                maxID = currentID;
-            }
-        }
-        
-        // Now add items in order from 1 to maxID
-        for (int i = 1; i <= maxID; i++) {
-            for (MenuItem item : items) {
-                if (Integer.parseInt(item.getMenuItemID().substring(1)) == i) {
-                    sortedItems.add(item);
-                    break;
-                }
-            }
-        }
-        
-        return sortedItems;
     }
 }

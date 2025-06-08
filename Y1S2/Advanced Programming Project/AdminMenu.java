@@ -206,7 +206,7 @@ public class AdminMenu extends Menu{
         }
         
         // Find all items with the max count
-        System.out.println("\n===== Most Popular Items (Ordered " + maxCount + " times) =====");
+        System.out.println("\n===== Most Popular Items (Ordered " + maxCount + " times) =====\n");
         for (int i = 0; i < popularItems.size(); i++) {
             if (itemCounts.get(i) == maxCount) {
                 System.out.println("- " + popularItems.get(i).getName());
@@ -227,7 +227,7 @@ public class AdminMenu extends Menu{
         ArrayList<Order> allOrders = FileManager.loadOrders("orders.csv", this.items);
         boolean foundOrders = false;
         
-        System.out.println("\n===== Orders on " + dateInput + " =====");
+        System.out.println("\n===== Orders on " + dateInput + " =====\n");
         for (Order order : allOrders) {
             // Skip unpaid orders
             if (order.getPaymentMethod().toLowerCase().equals("unpaid")) {
@@ -239,7 +239,7 @@ public class AdminMenu extends Menu{
             
             if (orderDate.equals(dateInput)) {
                 foundOrders = true;
-                System.out.println("\nOrder ID: " + order.getOrderID());
+                System.out.println("Order ID: " + order.getOrderID());
                 System.out.println("Customer: " + order.getCustomer().getName());
                 System.out.println("Order Time: " + order.getDateTime());
                 System.out.println("Payment Method: " + order.getPaymentMethod());
@@ -249,7 +249,7 @@ public class AdminMenu extends Menu{
                 for (OrderItem item : order.getItems()) {
                     System.out.printf("- %s x%d [%s] = RM%.2f\n", item.getMenuItem().getName(), item.getQuantity(), item.getSideOrders(), item.getSubTotal());
                 }
-                System.out.printf("Total: RM%.2f\n", order.getTotal());
+                System.out.printf("Total: RM%.2f\n\n", order.getTotal());
             }
         }
         
@@ -366,16 +366,13 @@ public class AdminMenu extends Menu{
             System.out.println("----------------------------------------------------------------------");
             System.out.printf("%-54s %14.2f\n", wrappedItemType, typeTotal);
             System.out.println("----------------------------------------------------------------------");
-            System.out.println();
         }
         
         // Print grand total
-        System.out.println("----------------------------------------------------------------------");
         System.out.printf("TOTAL REVENUE: %39s %14.2f\n", "", grandTotal);
         System.out.println("----------------------------------------------------------------------");
-        System.out.println();
         System.out.println("REPORT GENERATED FOR : " + dateInput);
-        System.out.println("\n");
+        System.out.println("\n======================================================================\n");
     }
 
     public void manageCategories(Scanner read) {

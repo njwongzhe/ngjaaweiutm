@@ -33,9 +33,9 @@ public class Order {
         for (OrderItem item : items) {
             MenuItem mi = item.getMenuItem();
             if (mi instanceof Combo) {
-                sb.append("COMBO: ").append(mi.getName()).append(":");
+                sb.append("COMBO:").append(mi.getName()).append(":");
             } else {
-                sb.append("ITEM: ").append(mi.getName()).append(":");
+                sb.append("ITEM:").append(mi.getName()).append(":");
             }
             sb.append(item.getQuantity()).append(":")
             .append(escapeComma(item.getSideOrders())).append("|");

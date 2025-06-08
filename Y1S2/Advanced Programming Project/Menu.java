@@ -187,9 +187,11 @@ public class Menu {
                         break;
                     case 6: 
                         ((AdminMenu)this).findMostPopularItems();
+                        System.out.println("\n================================================\n");
                         break;
                     case 7:
                         ((AdminMenu)this).filterOrdersByDate(read);
+                        System.out.println("================================\n");
                         break;
                     case 8:
                         ((AdminMenu)this).generateDailySalesReport(read);
@@ -209,7 +211,7 @@ public class Menu {
                     continue;
                     }
                 } catch(NumberFormatException e) {
-                    System.out.println("Invalid input. Please try again.");
+                    System.out.println("Invalid input. Please try again.\n");
                     continue;
                 }
                 switch (choice) {

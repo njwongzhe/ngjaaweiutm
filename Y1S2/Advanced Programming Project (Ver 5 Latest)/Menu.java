@@ -106,36 +106,46 @@ public class Menu {
     }
 
     public static Menu readAccessType(Scanner read) {
-        System.out.println(ColourManager.ouColour() + "--- Welcome to Group 8 Fast Food Order Record Management System ---");
-        System.out.println(                       "                      Make Your Day With Food!                     ");
-        System.out.println(ColourManager.opColour()   + "<Who Are You?>"); // Option
-        System.out.println(                       "1. Customer");
-        System.out.println(                       "2. Admin");
-        System.out.println();
-        System.out.println(                       "<Setting>");
-        System.out.println(                       "3. CLI Colur Customization");
-        
         int choice = 0;
+        boolean showMenu = true;
+        FileManager.loadColourSettings();
+
         do {
-            System.out.printf(ColourManager.ouColour() + "Select an Option (1 - 3): " + ColourManager.reColour()); // Ask Input
+            if (showMenu) {
+                System.out.println(ColourManager.ouColour() + "\n--- Welcome to Group 8 Fast Food Order Record Management System ---");
+                System.out.println(                       "                      Make Your Day With Food!                     ");
+                System.out.println(ColourManager.ouColour() + "<Who Are You?>");
+                System.out.println(ColourManager.opColour() + "1. Customer");
+                System.out.println(                           "2. Admin");
+                System.out.println();
+                System.out.println(ColourManager.ouColour() + "<Setting>");
+                System.out.println(ColourManager.opColour() + "3. CLI Colour Customization" + ColourManager.reColour());
+            }
+
+            System.out.printf(ColourManager.ouColour() + "Select an Option (1 - 3): " + ColourManager.reColour());
+
             try {
                 System.out.print(ColourManager.inColour()); 
-                choice = Integer.parseInt(read.nextLine()); // Input
+                choice = Integer.parseInt(read.nextLine().trim());
                 System.out.print(ColourManager.reColour());
-                if (choice < 1 && choice > 3) {
-                System.out.println(ColourManager.erColour() + "Only inputs either 1 or 3 are accepted. Please try again.\n" + ColourManager.reColour()); // Error
+
+                if (choice == 3) {
+                    ColourManager.customizeColour(read);
+                    showMenu = true; 
+                } else if (choice < 1 || choice > 3) {
+                    System.out.println(ColourManager.erColour() + "Only inputs 1 to 3 are accepted. Please try again.\n" + ColourManager.reColour());
+                    showMenu = false;
+                } else {
+                    break;
                 }
-            } catch(NumberFormatException e) {
-                System.out.println(ColourManager.erColour() + "Invalid input. Please try again.\n" + ColourManager.reColour()); // Error
+            } catch (NumberFormatException e) {
+                System.out.println(ColourManager.erColour() + "Invalid input. Please try again.\n" + ColourManager.reColour());
+                showMenu = false;
             }
 
-            if (choice == 3) {
-                
-            }
+        } while (true);
 
-        } while(choice != 1 && choice != 2);
-
-        if(choice == 1 ){
+        if (choice == 1) {
             Customer customer = Customer.readCustomerInfo(read); 
             return new CustomerMenu(customer);
         } else {

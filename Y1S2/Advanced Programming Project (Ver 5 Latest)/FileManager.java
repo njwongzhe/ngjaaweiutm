@@ -313,6 +313,43 @@ public class FileManager {
         }
     }
 
+    public static void saveColourSettings() {
+        createDataDirectory();
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(SYSTEM_DATA_DIR + "colour_settings.csv"))) {
+            bw.write(ColourManager.currentOutputColour + "," +
+                    ColourManager.currentInputColour + "," +
+                    ColourManager.currentOptionColour + "," +
+                    ColourManager.currentSuccessColour + "," +
+                    ColourManager.currentErrorColour);
+        } catch (IOException e) {
+            System.out.println(ColourManager.erColour() + "Error saving color settings: " + e.getMessage() + ColourManager.reColour()); // Error
+        }
+    }
+
+    public static void loadColourSettings() {
+        createDataDirectory();
+        File file = new File(SYSTEM_DATA_DIR + "colour_settings.csv");
+        if (!file.exists()) {
+            return; // Use defaults if no settings file exists
+        }
+
+        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+            String line = br.readLine();
+            if (line != null) {
+                String[] colors = line.split(",");
+                if (colors.length == 5) {
+                    ColourManager.currentOutputColour = colors[0];
+                    ColourManager.currentInputColour = colors[1];
+                    ColourManager.currentOptionColour = colors[2];
+                    ColourManager.currentSuccessColour = colors[3];
+                    ColourManager.currentErrorColour = colors[4];
+                }
+            }
+        } catch (IOException e) {
+            System.out.println(ColourManager.erColour() + "Error loading color settings: " + e.getMessage() + ColourManager.reColour()); // Error
+        }
+    }
+
     public static void initializeMenuIDs() {
         MenuItem.initializeIDGenerator(MenuItem.getAllMenuItems());
     }

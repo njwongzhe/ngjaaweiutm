@@ -117,7 +117,6 @@ public class Menu {
                 System.out.println(ColourManager.ouColour() + "<Who Are You?>");
                 System.out.println(ColourManager.opColour() + "1. Customer");
                 System.out.println(                           "2. Admin");
-                System.out.println();
                 System.out.println(ColourManager.ouColour() + "<Setting>");
                 System.out.println(ColourManager.opColour() + "3. CLI Colour Customization" + ColourManager.reColour());
             }

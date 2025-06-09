@@ -49,7 +49,7 @@ public class ColourManager {
 
     public static void customizeColour(Scanner read) {
         while (true) {
-            System.out.println(currentOutputColour + "\n< CLI Colour Customization >"); // Output
+            System.out.println(currentOutputColour + "\n<CLI Colour Customization>"); // Output
             System.out.println(currentOptionColour + "1. Change System Main Colour       -> " + currentOutputColour + "Current Colour Sample Text" + RESET); // Option
             System.out.println(currentOptionColour + "2. Change Input Colour             -> " + currentInputColour + "Current Colour Sample Text" + RESET);
             System.out.println(currentOptionColour + "3. Change Avaliable Option Colour  -> " + currentOptionColour + "Current Colour Sample Text" + RESET);
@@ -75,6 +75,7 @@ public class ColourManager {
                     System.out.println(currentSuccessColour + "Colors reset to defaults!" + RESET); // Success
                     continue;
                 } else if (choice >= 1 && choice <= 5) {
+                    System.out.println(currentOutputColour + "\n------------- Change Colors -------------"); // Output
                     System.out.println(currentOutputColour + "\nAvailable Colors:"); // Output
                     System.out.println(currentOptionColour + "1. Red    -> " + RED + "Sample" + RESET); // Option
                     System.out.println(currentOptionColour + "2. Orange -> " + ORANGE + "Sample" + RESET);
@@ -114,6 +115,7 @@ public class ColourManager {
             } catch (NumberFormatException e) {
                 System.out.println(currentErrorColour + "Please enter a number!" + RESET); // Error
             }
+            System.out.println(currentOutputColour + "\n-----------------------------------------" + RESET);
         }
     }
 

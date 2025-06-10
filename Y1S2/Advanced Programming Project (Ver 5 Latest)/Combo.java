@@ -125,7 +125,8 @@ public class Combo extends MenuItem {
             
             int quantity = 0;
             while (quantity <= 0) {
-                System.out.printf(ColourManager.ouColour() + "Enter quantity for %s: ", selectedItem.getName() + ColourManager.reColour()); // Ask Input
+                System.out.printf(ColourManager.ouColour() + "Enter quantity for %s: ", selectedItem.getName()); // Ask Input
+                System.out.print(ColourManager.reColour());
                 try {
                     System.out.print(ColourManager.inColour());
                     quantity = Integer.parseInt(read.nextLine()); // Input
@@ -142,7 +143,8 @@ public class Combo extends MenuItem {
             combo.quantities.add(quantity);
             combo.descriptionLines.add(quantity + " x " + selectedItem.getName().toUpperCase());
             
-            System.out.printf(ColourManager.suColour() + "Added %d x %s to combo\n", quantity, selectedItem.getName() + ColourManager.reColour()); // Success
+            System.out.printf(ColourManager.suColour() + "Added %d x %s to combo.\n", quantity, selectedItem.getName()); // Success
+            System.out.print(ColourManager.reColour());
         }
         
         return combo;

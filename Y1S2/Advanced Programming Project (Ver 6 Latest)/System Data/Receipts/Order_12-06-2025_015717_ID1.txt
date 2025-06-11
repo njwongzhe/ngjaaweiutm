@@ -1,0 +1,31 @@
+======================================================================================
+                                       Receipt
+======================================================================================
+Order ID       : 1
+Customer Name  : NJWONGZHE
+Customer Phone : 012-3456789
+Date           : 12-06-2025
+Time           : 01:57:17
+
+Payment Method : Cash
+--------------------------------------------------------------------------------------
+Code     Item                                       Qty      Price        Subtotal(RM)
+--------------------------------------------------------------------------------------
+F11      MI KARI MB                                  12       7.55               90.60
+         Remarks: No additional remarks                                               
+C3       JAHSID                                       5        4.0               20.00
+         5 x MASHED POTATO (R)                                                        
+         Remarks: No additional remarks                                               
+C3       JAHSID                                       4        4.0               16.00
+         5 x MASHED POTATO (R)                                                        
+         Remarks: No additional remarks                                               
+C3       JAHSID                                       1        4.0                4.00
+         5 x MASHED POTATO (R)                                                        
+         Remarks: No additional remarks                                               
+C3       JAHSID                                       2        7.0               14.00
+         5 x Mashed Potato (L) [extra fee: RM3                                        
+         .00]                                                                         
+         Remarks: No additional remarks                                               
+--------------------------------------------------------------------------------------
+TOTAL                                                                           144.60
+======================================================================================

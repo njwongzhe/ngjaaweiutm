@@ -30,7 +30,7 @@ public class AdminMenu extends Menu{
 
             switch (input) {
                 case "0":
-                    System.out.println(ColourManager.suColour() + "Exiting Admin access...\n" + ColourManager.reColour()); // Success
+                    System.out.println(ColourManager.suColour() + "Exiting Admin access..." + ColourManager.reColour()); // Success
                     return null;  // Return null to indicate no login
                 case "1":
                     System.out.println();
@@ -245,7 +245,6 @@ public class AdminMenu extends Menu{
     }
 
     public void filterOrdersByDate(Scanner read) {
-        System.out.println(ColourManager.ouColour() + "\n========= Order Filter =========\n" + ColourManager.reColour()); // Output
         System.out.printf(ColourManager.ouColour() + "Enter Date to Filter (dd-MM-yyyy): " + ColourManager.reColour()); // Ask Input
         System.out.print(ColourManager.inColour());
         String dateInput = read.nextLine(); // Input

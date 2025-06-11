@@ -189,7 +189,7 @@ public class Combo extends MenuItem {
             // Get quantity
             int quantity = 0;
             while (quantity <= 0) {
-                System.out.printf(ColourManager.ouColour() + "Enter quantity for %s: ", selectedItem.getName());
+                System.out.printf(ColourManager.ouColour() + "Enter Quantity for %s: ", selectedItem.getName());
                 System.out.print(ColourManager.reColour());
                 try {
                     System.out.print(ColourManager.inColour());
@@ -274,15 +274,19 @@ public class Combo extends MenuItem {
                     double fee = 0;
                     boolean validFee = false;
                     while (!validFee) {
-                        System.out.printf(ColourManager.ouColour() + "Enter extra fee for exchanging to %s (RM): ", exchItem.getName());
+                        System.out.printf(ColourManager.ouColour() + "Enter Extra Fee for Exchanging to %s (RM): ", exchItem.getName());
                         System.out.print(ColourManager.reColour());
                         try {
                             System.out.print(ColourManager.inColour());
                             fee = Double.parseDouble(read.nextLine());
                             System.out.print(ColourManager.reColour());
-                            validFee = true;
+                            if (fee >= 0) {
+                                validFee = true;
+                            } else if (fee < 0) {
+                                System.out.println(ColourManager.erColour() + "Please enter a positive number.\n" + ColourManager.reColour());
+                            }
                         } catch (NumberFormatException e) {
-                            System.out.println(ColourManager.erColour() + "Invalid fee amount. Please enter a number." + ColourManager.reColour());
+                            System.out.println(ColourManager.erColour() + "Invalid fee amount. Please enter a number.\n" + ColourManager.reColour());
                         }
                     }
                     

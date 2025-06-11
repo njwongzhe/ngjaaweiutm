@@ -188,7 +188,7 @@ public class CustomerMenu extends Menu {
                 for (String descLine : combo.getDescriptionLines()) {
                     ArrayList<String> wrappedDesc = wrapText(descLine, ITEM_NAME_WIDTH);
                     for (String wrappedLine : wrappedDesc) {
-                        receiptLines.add(String.format("%-8s %-37s %8s %10s %19s", "", wrappedLine, "", ""));
+                        receiptLines.add(String.format("%-8s %-37s %8s %10s %19s", "", wrappedLine, "", "", ""));
                     }
                 }
             }
@@ -196,7 +196,7 @@ public class CustomerMenu extends Menu {
             // Add additional name lines if needed
             ArrayList<String> nameLines = wrapText(itemName, ITEM_NAME_WIDTH);
             for (int j = 1; j < nameLines.size(); j++) {
-                receiptLines.add(String.format("%-8s %-37s %8s %10s %19s", "", nameLines.get(j), "", ""));
+                receiptLines.add(String.format("%-8s %-37s %8s %10s %19s", "", nameLines.get(j), "", "", ""));
             }
             
             String remarksLabel = "Remarks: " + (remarks.isEmpty() ? "NO" : remarks);
@@ -267,7 +267,6 @@ public class CustomerMenu extends Menu {
             System.out.println();
             if (item == null) {
                 System.out.println(ColourManager.erColour() + "Item not found. Please check the ID or name and try again.\n" + ColourManager.reColour()); // Error
-                System.out.println(ColourManager.ouColour() + "===============================================" + ColourManager.reColour()); // Output
                 return;
             }
         }
@@ -295,7 +294,7 @@ public class CustomerMenu extends Menu {
                     
                     // if yes, then print available exchangeList
                     if (exchangeChoice.toLowerCase().equals("y")) {
-                        System.out.println(ColourManager.ouColour() + "\nAvailable exchange options:");
+                        System.out.println(ColourManager.ouColour() + "\nAvailable Exchange Options:");
                         System.out.print(ColourManager.opColour());
                         ArrayList<MenuItem> exchItems = combo.getExchangeList().get(i);
                         ArrayList<Double> exchFees = combo.getExchangeFees().get(i);
@@ -309,7 +308,7 @@ public class CustomerMenu extends Menu {
                         int exchChoice = -1;
                         // ask for valid exchange choice, if not exchangeChoice = 0
                         while (exchChoice < 0 || exchChoice >= exchItems.size()) {
-                            System.out.printf(ColourManager.ouColour() + "Select exchange option (1-%d or 0 to cancel): ", exchItems.size());
+                            System.out.printf(ColourManager.ouColour() + "Select Exchange Option (1 - %d OR 0 to Cancel): ", exchItems.size());
                             System.out.print(ColourManager.reColour());
                             try {
                                 System.out.print(ColourManager.inColour());
@@ -319,10 +318,10 @@ public class CustomerMenu extends Menu {
                                 if (exchChoice == -1) {
                                     break; // Cancel exchange
                                 } else if (exchChoice < -1 || exchChoice >= exchItems.size()) {
-                                    System.out.println(ColourManager.erColour() + "Invalid selection!" + ColourManager.reColour());
+                                    System.out.println(ColourManager.erColour() + "Invalid selection!\n" + ColourManager.reColour());
                                 }
                             } catch (NumberFormatException e) {
-                                System.out.println(ColourManager.erColour() + "Please enter a valid number!" + ColourManager.reColour());
+                                System.out.println(ColourManager.erColour() + "Please enter a valid number!\n" + ColourManager.reColour());
                             }
                         }
                         
@@ -331,7 +330,6 @@ public class CustomerMenu extends Menu {
                             MenuItem newItem = exchItems.get(exchChoice);
                             double extraFee = exchFees.get(exchChoice);
                             totalExtraFee += extraFee;
-                            System.out.println(newItem.getName());
                             
                             String searchPattern = combo.getQuantities().get(i) + " x " + comboItem.getName().toUpperCase();
                             for (int k = 0; k < newDescriptionLines.size(); k++) {
@@ -342,7 +340,6 @@ public class CustomerMenu extends Menu {
                                         " [extra fee: RM" + String.format("%.2f", extraFee) + "]"
                                     );
                                     newDescriptionLines.set(k, newLine);
-                                    System.out.println(newDescriptionLines.get(k));
                                     break;
                                 }
                             }
@@ -357,7 +354,6 @@ public class CustomerMenu extends Menu {
             customizedCombo.setName(combo.getName());
             customizedCombo.setPrice(combo.getPrice() + totalExtraFee);
             customizedCombo.getDescriptionLines().addAll(newDescriptionLines);
-            System.out.println(newDescriptionLines); //******************************* */
 
             item = customizedCombo;
         }
@@ -366,8 +362,6 @@ public class CustomerMenu extends Menu {
         addToOrder(item, quantity, remarks);
         
         System.out.printf(ColourManager.suColour() + "Added %d x %s to your order.\n\n", quantity, item.getName()); // Success
-        System.out.println(ColourManager.ouColour() + "===============================================" + ColourManager.reColour()); // Output
-        System.out.print(ColourManager.reColour());
     }
 
     private int readValidQuantity(Scanner read) {
@@ -404,14 +398,13 @@ public class CustomerMenu extends Menu {
     public void viewOrder() {
         ArrayList<OrderItem> items = order.getItems();
         if (items.isEmpty()) {
-            System.out.println(ColourManager.erColour() + "Your cart is empty." + ColourManager.reColour()); // Error
-            System.out.println(ColourManager.ouColour() + "\n==============================================" + ColourManager.reColour()); // Output
+            System.out.println(ColourManager.erColour() + "Your cart is empty.\n" + ColourManager.reColour()); // Error
             return;
         }
         
-        System.out.println("\n======================================================================================");
-        System.out.println(  "                                       Your Cart                                      ");
-        System.out.println(  "======================================================================================");
+        System.out.println("======================================================================================");
+        System.out.println( "                                       Your Cart                                      ");
+        System.out.println( "======================================================================================");
         System.out.printf("%-8s %-37s %8s %10s %19s\n", "ID", "Item", "Qty", "Price", "Subtotal");
         System.out.println("--------------------------------------------------------------------------------------");
         
@@ -491,8 +484,7 @@ public class CustomerMenu extends Menu {
             }
         }
         
-        System.out.println(ColourManager.erColour() + "Item not found in your cart.\n" + ColourManager.reColour()); // Error
-        System.out.println(ColourManager.ouColour() + "===============================================" + ColourManager.reColour()); // Output
+        System.out.println(ColourManager.erColour() + "\nItem not found in your cart.\n" + ColourManager.reColour()); // Error
         return false;
     }
 

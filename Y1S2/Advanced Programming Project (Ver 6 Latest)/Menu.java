@@ -48,7 +48,6 @@ public class Menu {
         if(!result) {
             System.out.println(ColourManager.erColour() + "No items found that start with \"" + name + "\".\n" + ColourManager.reColour()); // Error
         }
-        System.out.println(ColourManager.ouColour() + "===============================================" + ColourManager.reColour()); // Output
     }
 
     public void getItemByCategory(String input) {
@@ -182,7 +181,7 @@ public class Menu {
                 }
                 switch (choice) {
                     case 0:
-                        System.out.println("\nExiting...\n");
+                        System.out.println(ColourManager.suColour() + "\nExiting..." + ColourManager.reColour());
                         break;
                     case 1: // View menu
                         this.printMenuItems();
@@ -194,6 +193,7 @@ public class Menu {
                         String findingName = read.nextLine(); // Input
                         System.out.print(ColourManager.reColour());
                         this.showItemByName(findingName);
+                        System.out.println(ColourManager.ouColour() + "===============================================" + ColourManager.reColour()); // Output
                         break;
                     case 3:
                         CategoryManager.printCategories();
@@ -208,19 +208,22 @@ public class Menu {
                         ((AdminMenu)this).readAddItem(read);  
                         break;
                     case 5: 
+                        System.out.println(ColourManager.ouColour() + "\n================ Remove Item ================\n" + ColourManager.reColour()); // Output
                         System.out.printf(ColourManager.ouColour() + "\nEnter Either the Item ID or Item Name to Remove: " + ColourManager.reColour()); // Ask Input
                         System.out.print(ColourManager.inColour());
                         String removeItem = read.nextLine().trim(); // Input
                         System.out.print(ColourManager.reColour());
                         ((AdminMenu) this).removeItem(removeItem);
+                        System.out.println(ColourManager.ouColour() + "=============================================" + ColourManager.reColour()); // Output
                         break;
                     case 6: 
                         ((AdminMenu)this).findMostPopularItems();
                         System.out.println(ColourManager.ouColour() + "\n================================================" + ColourManager.reColour()); // Output
                         break;
                     case 7:
+                        System.out.println(ColourManager.ouColour() + "\n================= Order Filter =================\n" + ColourManager.reColour()); // Output
                         ((AdminMenu)this).filterOrdersByDate(read);
-                        System.out.println(ColourManager.ouColour() + "================================" + ColourManager.reColour()); // Output
+                        System.out.println(ColourManager.ouColour() + "================================================" + ColourManager.reColour()); // Output
                         break;
                     case 8:
                         ((AdminMenu)this).generateDailySalesReport(read);
@@ -249,7 +252,7 @@ public class Menu {
                 }
                 switch (choice) {
                     case 0:
-                        System.out.println(ColourManager.suColour() + "\nExiting...\n" + ColourManager.reColour()); // Success
+                        System.out.println(ColourManager.suColour() + "\nExiting..." + ColourManager.reColour()); // Success
                         break;
                     case 1: 
                         this.printMenuItems();
@@ -257,8 +260,11 @@ public class Menu {
                     case 2:
                         System.out.println(ColourManager.ouColour() + "\n================= Search Item =================\n" + ColourManager.reColour()); // Output
                         System.out.printf(ColourManager.ouColour() + "Enter the Item Name You Want to Find: " + ColourManager.reColour()); // Ask Input
-                        String findingName = read.nextLine();
+                        System.out.print(ColourManager.inColour());
+                        String findingName = read.nextLine(); // Input
+                        System.out.print(ColourManager.reColour());
                         this.showItemByName(findingName);
+                        System.out.println(ColourManager.ouColour() + "===============================================" + ColourManager.reColour()); // Output
                         break;
                     case 3:
                         CategoryManager.printCategories();
@@ -268,20 +274,25 @@ public class Menu {
                         System.out.print(ColourManager.reColour());
                         this.getItemByCategory(category);
                         break;
-                    case 4: 
+                    case 4:
+                        System.out.println(ColourManager.ouColour() + "\n===================================== View Order =====================================\n" + ColourManager.reColour()); // Output
                         ((CustomerMenu) this).viewOrder();
+                        System.out.println(ColourManager.ouColour() + "======================================================================================" + ColourManager.reColour()); // Output
                         break;
                     case 5:
                         System.out.println(ColourManager.ouColour() + "\n============== Add Item to Order ==============\n" + ColourManager.reColour()); // Output
                         ((CustomerMenu) this).addOrderItem(read);
+                        System.out.println(ColourManager.ouColour() + "===============================================" + ColourManager.reColour()); // Output
+                        System.out.print(ColourManager.reColour());
                         break;
                     case 6:
+                        System.out.println(ColourManager.ouColour() + "\n==================================== Remove Order ====================================\n" + ColourManager.reColour()); // Output
                         ((CustomerMenu) this).viewOrder();  // Show current cart items
                         boolean removed = ((CustomerMenu) this).removeFromOrder(read);
                         if (removed) {
                             System.out.println(ColourManager.suColour() + "Item removed successfully.\n" + ColourManager.reColour()); // Success
                         }
-                        System.out.println(ColourManager.ouColour() + "===============================================" + ColourManager.reColour()); // Output
+                        System.out.println(ColourManager.ouColour() + "======================================================================================" + ColourManager.reColour()); // Output
                         break;
                     case 7: 
                         ((CustomerMenu) this).makePayment(read);

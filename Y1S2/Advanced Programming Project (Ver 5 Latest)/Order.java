@@ -37,7 +37,7 @@ public class Order {
                 sb.append("ITEM:").append(mi.getName()).append(":");
             }
             sb.append(item.getQuantity()).append(":")
-            .append(escapeComma(item.getSideOrders())).append("|");
+            .append(escapeComma(item.getRemarks())).append("|");
         }
         return sb.toString();
     }
@@ -63,7 +63,7 @@ public class Order {
                 String itemType = detail[0]; // "COMBO" or "ITEM"
                 String itemName = unescapeComma(detail[1]);
                 int qty = Integer.parseInt(detail[2]);
-                String sideOrder = unescapeComma(detail[3]);
+                String remarks = unescapeComma(detail[3]);
 
                 MenuItem found = null;
                 for (MenuItem mi : menuItems) {
@@ -76,7 +76,7 @@ public class Order {
                 }
                 
                 if (found != null) {
-                    order.addItem(new OrderItem(found, qty, sideOrder));
+                    order.addItem(new OrderItem(found, qty, remarks));
                 }
             }
         }

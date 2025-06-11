@@ -7,9 +7,9 @@ public class CustomerMenu extends Menu {
     private ArrayList<Customer> allCustomers = new ArrayList<Customer>();
     private ArrayList<Order> allOrders = new ArrayList<Order>();
 
-    private static final int RECEIPT_WIDTH = 75;
+    private static final int RECEIPT_WIDTH = 86;
     private static final int ITEM_NAME_WIDTH = 37;
-    private static final int SIDE_ORDERS_WIDTH = 37;
+    private static final int REMARKS_WIDTH = 37;
 
     public CustomerMenu(Customer customer) {
         this.customer = customer;
@@ -77,33 +77,22 @@ public class CustomerMenu extends Menu {
             FileManager.saveCustomers(allCustomers, "customers.csv");
         }
 
-        System.out.println(ColourManager.ouColour() + "\n============================== Customer Info ==============================" + ColourManager.reColour()); // Output
+        System.out.println(ColourManager.ouColour() + "\n==================================== Customer Info ===================================" + ColourManager.reColour()); // Output
         customer.printCustomerInfo();
 
         // Print order summary
-        System.out.println(ColourManager.ouColour() + "\n============================== Order Summary ==============================" + ColourManager.reColour()); // Output
+        System.out.println(ColourManager.ouColour() + "\n==================================== Order Summary ===================================" + ColourManager.reColour()); // Output
         ArrayList<OrderItem> items = order.getItems();
         if (items.isEmpty()) {
             System.out.println(ColourManager.erColour() + "\nYour cart is empty. Nothing to pay for.\n" + ColourManager.reColour()); // Error
-            System.out.println(ColourManager.ouColour() + "===========================================================================" + ColourManager.reColour()); // Output
+            System.out.println(ColourManager.ouColour() + "======================================================================================" + ColourManager.reColour()); // Output
             return;                              
         }
 
-        double total = 0.0;
-        for (OrderItem orderItem : items) {
-            double subTotal = orderItem.getSubTotal();
-            total += subTotal;
-            System.out.printf("- %s x%d [%s] = RM%.2f\n",
-                    orderItem.getMenuItem().getName(),
-                    orderItem.getQuantity(),
-                    orderItem.getSideOrders(),
-                    subTotal);
-        }
-
-        System.out.printf("Total: RM%.2f\n", total);
+        viewOrder();
         
         if (order.getPaymentMethod().equals("Unpaid")) {
-            System.out.println(ColourManager.ouColour() + "\n============================= Payment Method ==============================" + ColourManager.reColour()); // Output
+            System.out.println(ColourManager.ouColour() + "\n=================================== Payment Method ===================================" + ColourManager.reColour()); // Output
             String[] paymentMethods = {
                 "Cash",
                 "Credit Card",
@@ -145,7 +134,7 @@ public class CustomerMenu extends Menu {
         // Add order to customer's order list, then reset order once user has made payment
         customer.addOrder(order);
         System.out.println(ColourManager.suColour() + "Payment successful. Thank you!\n" + ColourManager.reColour()); // Success
-        System.out.println(ColourManager.ouColour() + "===========================================================================" + ColourManager.reColour()); // Output
+        System.out.println(ColourManager.ouColour() + "======================================================================================" + ColourManager.reColour()); // Output
         order = new Order(customer);
         allOrders.add(order);  // Add the new order to the global list
         FileManager.saveOrders(allOrders, "orders.csv");
@@ -174,7 +163,7 @@ public class CustomerMenu extends Menu {
         receiptLines.add(String.format("Payment Method : %s", order.getPaymentMethod()));
         
         receiptLines.add(generateDivider('-'));
-        receiptLines.add(String.format("%-8s %-37s %8s %19s", "Code", "Item", "Qty", "Subtotal(RM)"));
+        receiptLines.add(String.format("%-8s %-37s %8s %10s %19s", "Code", "Item", "Qty", "Price", "Subtotal(RM)"));
         receiptLines.add(generateDivider('-'));
         
         double total = 0;
@@ -182,31 +171,33 @@ public class CustomerMenu extends Menu {
             MenuItem menuItem = orderItem.getMenuItem();
             String itemID = menuItem.getMenuItemID();  
             String itemName = menuItem.getName().toUpperCase();
-            String sideOrders = orderItem.getSideOrders();
+            String remarks = orderItem.getRemarks();
+            double price = menuItem.getPrice();
             double subtotal = orderItem.getSubTotal();
             total += subtotal;
             
-            receiptLines.add(String.format("%-8s %-37s %8d %19.2f", 
+            receiptLines.add(String.format("%-8s %-37s %8d %10s %19.2f", 
                 itemID, 
                 wrapText(itemName, ITEM_NAME_WIDTH).get(0), 
                 orderItem.getQuantity(), 
+                price,
                 subtotal));
             
             // Add additional name lines if needed
             ArrayList<String> nameLines = wrapText(itemName, ITEM_NAME_WIDTH);
             for (int j = 1; j < nameLines.size(); j++) {
-                receiptLines.add(String.format("%-8s %-37s %8s %19s", "", nameLines.get(j), "", ""));
+                receiptLines.add(String.format("%-8s %-37s %8s %10s %19s", "", nameLines.get(j), "", ""));
             }
             
-            String sideLabel = "Side Orders: " + (sideOrders.isEmpty() ? "NO" : sideOrders);
-            ArrayList<String> sideLines = wrapText(sideLabel, SIDE_ORDERS_WIDTH);
-            for (String line : sideLines) {
-                receiptLines.add(String.format("%-8s %-66s", "", line));
+            String remarksLabel = "Remarks: " + (remarks.isEmpty() ? "NO" : remarks);
+            ArrayList<String> remarksLines = wrapText(remarksLabel, REMARKS_WIDTH);
+            for (String line : remarksLines) {
+                receiptLines.add(String.format("%-8s %-77s", "", line));
             }
         }
         
         receiptLines.add(generateDivider('-'));
-        receiptLines.add(String.format("%-55s %19.2f", "TOTAL", total));
+        receiptLines.add(String.format("%-66s %19.2f", "TOTAL", total));
         receiptLines.add(generateDivider('='));
         
         for (String line : receiptLines) {
@@ -274,8 +265,8 @@ public class CustomerMenu extends Menu {
         int quantity = readValidQuantity(read);
         if (quantity <= 0) return;
         
-        String sideOrders = readSideOrders(read);
-        addToOrder(item, quantity, sideOrders);
+        String remarks = readRemarks(read);
+        addToOrder(item, quantity, remarks);
         
         System.out.printf(ColourManager.suColour() + "Added %d x %s to your order.\n\n", quantity, item.getName()); // Success
         System.out.println(ColourManager.ouColour() + "===============================================" + ColourManager.reColour()); // Output
@@ -299,16 +290,16 @@ public class CustomerMenu extends Menu {
         }
     }
 
-    private String readSideOrders(Scanner read) {
-        System.out.printf(ColourManager.ouColour() + "Any Side Orders or Instructions? (Press Enter for None): " + ColourManager.reColour()); // Ask Input
+    private String readRemarks(Scanner read) {
+        System.out.printf(ColourManager.ouColour() + "Any Remarks or Instructions? (Press Enter for None): " + ColourManager.reColour()); // Ask Input
         System.out.print(ColourManager.inColour());
         String input = read.nextLine().trim(); // Input
         System.out.print(ColourManager.reColour());
         return input.isEmpty() ? "No additional remarks" : input;
     }
 
-    public void addToOrder(MenuItem item, int quantity, String sideOrders) {
-        OrderItem orderItem = new OrderItem(item, quantity, sideOrders);
+    public void addToOrder(MenuItem item, int quantity, String remarks) {
+        OrderItem orderItem = new OrderItem(item, quantity, remarks);
         order.addItem(orderItem);
         FileManager.saveOrders(allOrders, "orders.csv");
     }
@@ -329,7 +320,7 @@ public class CustomerMenu extends Menu {
         
         for (OrderItem orderItem : items) {
             MenuItem item = orderItem.getMenuItem();
-            String sideOrders = orderItem.getSideOrders();
+            String remarks = orderItem.getRemarks();
             
             ArrayList<String> nameLines = wrapText(item.getName(), ITEM_NAME_WIDTH);
 
@@ -345,10 +336,10 @@ public class CustomerMenu extends Menu {
                 System.out.printf("%-8s %-37s %8s %10s %19s\n","", nameLines.get(i), "", "", "");
             }
             
-            // Print side orders if they exist
-            if (!sideOrders.isEmpty() && !sideOrders.toLowerCase().equals("no additional remarks")) {
-                ArrayList<String> wrappedSideOrders = wrapText("Side: " + sideOrders, 37);
-                for (String line : wrappedSideOrders) {
+            // Print remarks if they exist
+            if (!remarks.isEmpty() && !remarks.toLowerCase().equals("no additional remarks")) {
+                ArrayList<String> wrappedRemarks = wrapText("Remarks: " + remarks, 37);
+                for (String line : wrappedRemarks) {
                     System.out.printf("%-8s %-25s %5s %10s %15s\n", "", line, "", "", "");
                 }
             }

@@ -280,7 +280,7 @@ public class AdminMenu extends Menu{
                 // Print order items
                 System.out.println("Items:");
                 for (OrderItem item : order.getItems()) {
-                    System.out.printf("- %s x%d [%s] = RM%.2f\n", item.getMenuItem().getName(), item.getQuantity(), item.getSideOrders(), item.getSubTotal());
+                    System.out.printf("- %s x%d [%s] = RM%.2f\n", item.getMenuItem().getName(), item.getQuantity(), item.getRemarks(), item.getSubTotal());
                 }
                 System.out.printf("Total: RM%.2f\n\n", order.getTotal());
             }

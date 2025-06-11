@@ -3,12 +3,12 @@ import java.util.Objects;
 public class OrderItem {
     private MenuItem menuItem;
     private int quantity;
-    private String sideOrders;   //Extra sauces, add round egg, no lettuce and etc.
+    private String remarks;   //Extra sauces, add round egg, no lettuce and etc.
 
-    public OrderItem(MenuItem menuItem, int quantity, String sideOrders) {
+    public OrderItem(MenuItem menuItem, int quantity, String remarks) {
         this.menuItem = menuItem;
         this.quantity = quantity;
-        this.sideOrders = sideOrders;
+        this.remarks = remarks;
     }
 
     public void setMenuItem(MenuItem menuItem) {
@@ -27,12 +27,12 @@ public class OrderItem {
         return this.quantity;
     }
 
-    public void setSideOrders(String sideOrders) {
-        this.sideOrders = sideOrders;
+    public void setRemarks(String remarks) {
+        this.remarks = remarks;
     }
 
-    public String getSideOrders() {
-        return this.sideOrders;
+    public String getRemarks() {
+        return this.remarks;
     }
 
     public double getSubTotal() {
@@ -46,11 +46,11 @@ public class OrderItem {
         OrderItem other = (OrderItem) obj;
         return this.menuItem.equals(other.menuItem)
             && this.quantity == other.quantity
-            && this.sideOrders.toLowerCase().equals(other.sideOrders.toLowerCase());
+            && this.remarks.toLowerCase().equals(other.remarks.toLowerCase());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(menuItem, quantity, sideOrders.toLowerCase());
+        return Objects.hash(menuItem, quantity, remarks.toLowerCase());
     }
 }

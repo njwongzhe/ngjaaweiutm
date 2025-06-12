@@ -1,0 +1,31 @@
+======================================================================================
+                                       Receipt
+======================================================================================
+Order ID       : 2
+Customer Name  : GUI GUANYU
+Customer Phone : 012-9307921
+Date           : 12-06-2025
+Time           : 10:27:18
+
+Payment Method : E-Wallet (Touch'n Go)
+--------------------------------------------------------------------------------------
+Code     Item                                       Qty      Price        Subtotal(RM)
+--------------------------------------------------------------------------------------
+C1       HAPPY PLATE                                  1       24.5               24.50
+         2 x Hotouch Burger [extra fee: RM2.50                                        
+         ]                                                                            
+         2 x Soft Drinks (L) [extra fee: RM2.5                                        
+         0]                                                                           
+         Remarks: No additional remarks                                               
+F1       CHICKEN BURGER                               1       4.85                4.85
+         Remarks: No additional remarks                                               
+F46      HANDSOME                                     1       19.5               19.50
+         Remarks: No additional remarks                                               
+C1       HAPPY PLATE                                  2       21.5               43.00
+         2 x MB Crispy Chicken x5 [extra fee:                                         
+         RM2.00]                                                                      
+         2 x SOFT DRINKS (R)                                                          
+         Remarks: No additional remarks                                               
+--------------------------------------------------------------------------------------
+TOTAL                                                                            91.85
+======================================================================================

@@ -121,7 +121,7 @@ public class AdminMenu extends Menu{
         }
         
         if (!found) {
-            System.out.println(ColourManager.erColour() + "Item not found. Please check the ID or name and try again.\n" + ColourManager.reColour()); // Error
+            System.out.println(ColourManager.erColour() + "\nItem not found. Please check the ID or name and try again.\n" + ColourManager.reColour()); // Error
         }
     }
 
@@ -422,54 +422,54 @@ public class AdminMenu extends Menu{
 
     public void manageMenuItems(Scanner read) {
         while (true) {
-            System.out.println(ColourManager.ouColour() + "\n===== Manage Menu Items =====" + ColourManager.reColour());
+            System.out.println(ColourManager.ouColour() + "\n===== Manage Menu Items =====" + ColourManager.reColour()); // Output
             System.out.print(ColourManager.opColour());
-            System.out.println("0. Back to Main Menu");
+            System.out.println("0. Back to Main Menu"); // Option
             System.out.println("1. Add Menu Item");
             System.out.println("2. Remove Menu Item");
             System.out.println("3. Edit Menu Item");
             System.out.print(ColourManager.reColour());
-            System.out.printf(ColourManager.ouColour() + "Select an Option (0-3): " + ColourManager.reColour());
+            System.out.printf(ColourManager.ouColour() + "Select an Option (0 - 3): " + ColourManager.reColour()); // Ask Input
 
             try {
                 System.out.print(ColourManager.inColour());
-                int choice = Integer.parseInt(read.nextLine());
+                int choice = Integer.parseInt(read.nextLine()); // Input
                 System.out.print(ColourManager.reColour());
 
                 switch (choice) {
                     case 0:
                         return;
                     case 1:
-                        System.out.println(ColourManager.ouColour() + "\n============== Add Item to Menu ==============\n" + ColourManager.reColour());
+                        System.out.println(ColourManager.ouColour() + "\n============== Add Item to Menu ==============\n" + ColourManager.reColour()); // Output
                         readAddItem(read);
                         break;
                     case 2:
-                        System.out.println(ColourManager.ouColour() + "\n================ Remove Item ================\n" + ColourManager.reColour());
-                        System.out.printf(ColourManager.ouColour() + "Enter Either the Item ID or Item Name to Remove: " + ColourManager.reColour());
+                        System.out.println(ColourManager.ouColour() + "\n================ Remove Item ================\n" + ColourManager.reColour()); // Output
+                        System.out.printf(ColourManager.ouColour() + "Enter Either the Item ID or Item Name to Remove: " + ColourManager.reColour()); // Ask Input
                         System.out.print(ColourManager.inColour());
                         String removeItem = read.nextLine().trim();
                         System.out.print(ColourManager.reColour());
                         removeItem(removeItem);
-                        System.out.println(ColourManager.ouColour() + "=============================================" + ColourManager.reColour());
+                        System.out.println(ColourManager.ouColour() + "=============================================" + ColourManager.reColour()); // Output
                         break;
                     case 3:
-                        System.out.println(ColourManager.ouColour() + "\n================ Edit Item ================\n" + ColourManager.reColour());
+                        System.out.println(ColourManager.ouColour() + "\n================ Edit Item ================\n" + ColourManager.reColour()); // Output
                         editMenuItem(read);
-                        System.out.println(ColourManager.ouColour() + "============================================" + ColourManager.reColour());
+                        System.out.println(ColourManager.ouColour() + "\n============================================" + ColourManager.reColour()); // Output
                         break;
                     default:
-                        System.out.println(ColourManager.erColour() + "Invalid option. Please try again." + ColourManager.reColour());
+                        System.out.println(ColourManager.erColour() + "Invalid option. Please try again." + ColourManager.reColour()); // Error
                 }
             } catch (NumberFormatException e) {
-                System.out.println(ColourManager.erColour() + "Please enter a valid number." + ColourManager.reColour());
+                System.out.println(ColourManager.erColour() + "Please enter a valid number." + ColourManager.reColour()); //Error
             }
         }
     }
 
     public void editMenuItem(Scanner read) {
-        System.out.printf(ColourManager.ouColour() + "Enter Item ID or Name to Edit: " + ColourManager.reColour());
+        System.out.printf(ColourManager.ouColour() + "Enter Item ID or Name to Edit: " + ColourManager.reColour()); // Ask Input
         System.out.print(ColourManager.inColour());
-        String input = read.nextLine().trim();
+        String input = read.nextLine().trim(); // Input
         System.out.print(ColourManager.reColour());
 
         MenuItem item = null;
@@ -482,30 +482,31 @@ public class AdminMenu extends Menu{
         }
 
         if (item == null) {
-            System.out.println(ColourManager.erColour() + "Item not found." + ColourManager.reColour());
+            System.out.println(ColourManager.erColour() + "\nItem not found." + ColourManager.reColour()); // Error
             return;
         }
 
         System.out.println("\nEditing: " + item.getName() + " (" + item.getMenuItemID() + ")");
-        System.out.println("Current Price: RM" + item.getPrice());
-        System.out.println("Current Availability: " + (item.isAvailable() ? "Available" : "Not Available"));
+        System.out.println("Current Price: RM" + String.format("%.2f", item.getPrice()));
+        System.out.println("Current Availability: " + (item.isAvailable() ? ColourManager.suColour() + "Available" : ColourManager.erColour() + "Not Available")); // Success // Error
+        System.out.print(ColourManager.reColour());
 
         while (true) {
-            System.out.println(ColourManager.ouColour() + "\n===== Edit Options =====" + ColourManager.reColour());
+            System.out.println(ColourManager.ouColour() + "\n===== Edit Options =====" + ColourManager.reColour()); // Output
             System.out.print(ColourManager.opColour());
-            System.out.println("0. Done Editing");
+            System.out.println("0. Done Editing"); // Option
             System.out.println("1. Edit Price");
             System.out.println("2. Toggle Availability");
             if (item instanceof Combo) {
                 System.out.println("3. Edit Exchange Options");
             }
             System.out.print(ColourManager.reColour());
-            System.out.printf(ColourManager.ouColour() + "Select an Option (0-%d): ", (item instanceof Combo) ? 3 : 2);
+            System.out.printf(ColourManager.ouColour() + "Select an Option (0 - %d): ", (item instanceof Combo) ? 3 : 2); // Output
             System.out.print(ColourManager.reColour());
 
             try {
                 System.out.print(ColourManager.inColour());
-                int choice = Integer.parseInt(read.nextLine());
+                int choice = Integer.parseInt(read.nextLine()); // Input
                 System.out.print(ColourManager.reColour());
 
                 switch (choice) {
@@ -513,18 +514,12 @@ public class AdminMenu extends Menu{
                         saveMenuItems();
                         return;
                     case 1:
-                        System.out.printf(ColourManager.ouColour() + "Enter New Price (Current: RM%.2f): ", item.getPrice());
-                        System.out.print(ColourManager.reColour());
-                        System.out.print(ColourManager.inColour());
-                        double newPrice = Double.parseDouble(read.nextLine());
-                        System.out.print(ColourManager.reColour());
-                        item.setPrice(newPrice);
-                        System.out.println(ColourManager.suColour() + "Price updated successfully!" + ColourManager.reColour());
+                        editItemPrice(item, read);
                         break;
                     case 2:
                         item.setAvailable(!item.isAvailable());
                         System.out.println(ColourManager.suColour() + "Availability set to: " + 
-                            (item.isAvailable() ? "Available" : "Not Available") + ColourManager.reColour());
+                            (item.isAvailable() ? "Available" : "Not Available") + ColourManager.reColour()); // Success
                         break;
                     case 3:
                         if (item instanceof Combo) {
@@ -532,16 +527,47 @@ public class AdminMenu extends Menu{
                         }
                         break;
                     default:
-                        System.out.println(ColourManager.erColour() + "Invalid option. Please try again." + ColourManager.reColour());
+                        System.out.println(ColourManager.erColour() + "Invalid option. Please try again." + ColourManager.reColour()); // Error
                 }
             } catch (NumberFormatException e) {
-                System.out.println(ColourManager.erColour() + "Please enter a valid number." + ColourManager.reColour());
+                System.out.println(ColourManager.erColour() + "Please enter a valid number." + ColourManager.reColour()); // Error
+            }
+        }
+    }
+
+    private void editItemPrice(MenuItem item, Scanner read) {
+        while (true) {
+            try {
+                System.out.printf(ColourManager.ouColour() + "\nEnter New Price (Current: RM%.2f): ", item.getPrice()); // Ask Input
+                System.out.print(ColourManager.reColour());
+                System.out.print(ColourManager.inColour());
+                String priceInput = read.nextLine().trim(); // Input
+                System.out.print(ColourManager.reColour());
+
+                if (priceInput.isEmpty()) {
+                    System.out.println(ColourManager.erColour() + "Price cannot be empty!" + ColourManager.reColour()); // Error
+                    continue;
+                }
+
+                double newPrice = Double.parseDouble(priceInput);
+                if (newPrice < 0) {
+                    System.out.println(ColourManager.erColour() + "Price cannot be negative!" + ColourManager.reColour()); // Error
+                    continue;
+                }
+
+                item.setPrice(newPrice);
+                System.out.println(ColourManager.suColour() + "Price updated successfully!" + ColourManager.reColour()); // Success
+                return;
+            } catch (NumberFormatException e) {
+                System.out.println(ColourManager.erColour() + "Invalid price format. Please enter a valid number." + ColourManager.reColour()); // Error
+            } catch (Exception e) {
+                System.out.println(ColourManager.erColour() + "An error occurred: " + e.getMessage() + ColourManager.reColour()); // Error
             }
         }
     }
 
     private void editComboExchangeOptions(Combo combo, Scanner read) {
-        System.out.println(ColourManager.ouColour() + "\n===== Combo Exchange Options =====" + ColourManager.reColour());
+        System.out.println(ColourManager.ouColour() + "\n===== Combo Exchange Options =====" + ColourManager.reColour()); // Output
         
         for (int i = 0; i < combo.getItems().size(); i++) {
             MenuItem comboItem = combo.getItems().get(i);
@@ -550,71 +576,122 @@ public class AdminMenu extends Menu{
             ArrayList<Double> exchangeFees = combo.getExchangeFees().get(i);
 
             System.out.println("\nItem: " + comboItem.getName() + " (" + comboItem.getMenuItemID() + ")");
-            System.out.println("Currently " + (exchangeable ? "exchangeable" : "not exchangeable"));
+            System.out.println("Currently " + (exchangeable ? ColourManager.suColour() + "Exchangeable" : ColourManager.erColour() + "Not Exchangeable")); // Success // Error
+            System.out.print(ColourManager.reColour());
             
             if (exchangeable && !exchangeList.isEmpty()) {
-                System.out.println("Current Exchange Options:");
-                for (int j = 0; j < exchangeList.size(); j++) {
+                System.out.println(ColourManager.ouColour() + "Current Exchange Options:" + ColourManager.reColour()); // Output
+                System.out.print(ColourManager.opColour()); 
+                for (int j = 0; j < exchangeList.size(); j++) { // Option
                     System.out.printf("%d. %s (Extra RM%.2f)\n", 
                         j+1, exchangeList.get(j).getName(), exchangeFees.get(j));
                 }
+                System.out.print(ColourManager.reColour());
             }
 
-            System.out.printf(ColourManager.ouColour() + "\nMake this item exchangeable? (y/n): " + ColourManager.reColour());
-            System.out.print(ColourManager.inColour());
-            String choice = read.nextLine().trim().toLowerCase();
-            System.out.print(ColourManager.reColour());
-
-            boolean newExchangeable = choice.equals("y");
-            combo.getExchangeable().set(i, newExchangeable);
-
-            if (newExchangeable) {
-                ArrayList<MenuItem> newExchangeList = new ArrayList<>();
-                ArrayList<Double> newExchangeFees = new ArrayList<>();
-
-                while (true) {
-                    System.out.println("\nAvailable items for exchange (same type):");
-                    int counter = 1;
-                    ArrayList<MenuItem> sameTypeItems = new ArrayList<>();
-                    
-                    for (MenuItem item : items) {
-                        if (!item.equals(comboItem) && 
-                            ((comboItem instanceof Food && item instanceof Food) || 
-                             (comboItem instanceof Drink && item instanceof Drink))) {
-                            System.out.printf("%d. %s (RM%.2f)\n", counter++, item.getName(), item.getPrice());
-                            sameTypeItems.add(item);
-                        }
-                    }
-
-                    System.out.printf(ColourManager.ouColour() + "\nSelect an item to add to exchange list (1-%d or 0 to finish): ", sameTypeItems.size());
-                    System.out.print(ColourManager.reColour());
+            while (true) {
+                try {
+                    System.out.printf(ColourManager.ouColour() + "\nMake this item exchangeable? (y/n): " + ColourManager.reColour()); // Ask Input
                     System.out.print(ColourManager.inColour());
-                    int itemChoice = Integer.parseInt(read.nextLine());
+                    String choice = read.nextLine().trim().toLowerCase(); // Input
                     System.out.print(ColourManager.reColour());
 
-                    if (itemChoice == 0) break;
-                    if (itemChoice < 1 || itemChoice > sameTypeItems.size()) {
-                        System.out.println(ColourManager.erColour() + "Invalid selection." + ColourManager.reColour());
+                    if (!choice.equals("y") && !choice.equals("n")) {
+                        System.out.println(ColourManager.erColour() + "Please enter 'y' or 'n'." + ColourManager.reColour()); // Error
                         continue;
                     }
 
-                    MenuItem selectedItem = sameTypeItems.get(itemChoice - 1);
-                    System.out.printf(ColourManager.ouColour() + "Enter extra fee for exchanging to %s: RM", selectedItem.getName());
-                    System.out.print(ColourManager.reColour());
-                    System.out.print(ColourManager.inColour());
-                    double fee = Double.parseDouble(read.nextLine());
-                    System.out.print(ColourManager.reColour());
+                    boolean newExchangeable = choice.equals("y");
+                    combo.getExchangeable().set(i, newExchangeable);
 
-                    newExchangeList.add(selectedItem);
-                    newExchangeFees.add(fee);
-                    System.out.println(ColourManager.suColour() + "Exchange option added!" + ColourManager.reColour());
+                    if (newExchangeable) {
+                        ArrayList<MenuItem> newExchangeList = new ArrayList<>();
+                        ArrayList<Double> newExchangeFees = new ArrayList<>();
+
+                        while (true) {
+                            try {
+                                System.out.println(ColourManager.ouColour() + "\nAvailable Items for Exchange (Same Type):" + ColourManager.reColour()); // Output
+                                int counter = 1;
+                                ArrayList<MenuItem> sameTypeItems = new ArrayList<>();
+                                
+                                System.out.print(ColourManager.opColour());
+                                for (MenuItem item : items) { // Option
+                                    if (!item.equals(comboItem) && 
+                                        ((comboItem instanceof Food && item instanceof Food) || 
+                                         (comboItem instanceof Drink && item instanceof Drink))) {
+                                        System.out.printf("%d. %s (RM%.2f)\n", counter++, item.getName(), item.getPrice());
+                                        sameTypeItems.add(item);
+                                    }
+                                }
+                                System.out.print(ColourManager.reColour());
+
+                                if (sameTypeItems.isEmpty()) {
+                                    System.out.println(ColourManager.erColour() + "No available items of the same type for exchange." + ColourManager.reColour()); // Error
+                                    break;
+                                }
+
+                                System.out.printf(ColourManager.ouColour() + "\nSelect An Item to Add to Exchange List (1 - %d OR 0 to Finish): ", sameTypeItems.size()); // Ask Input
+                                System.out.print(ColourManager.reColour());
+                                System.out.print(ColourManager.inColour());
+                                String itemChoiceInput = read.nextLine().trim(); // Input
+                                System.out.print(ColourManager.reColour());
+
+                                if (itemChoiceInput.isEmpty()) {
+                                    System.out.println(ColourManager.erColour() + "Please enter a valid selection." + ColourManager.reColour()); // Error
+                                    continue;
+                                }
+
+                                int itemChoice = Integer.parseInt(itemChoiceInput);
+
+                                if (itemChoice == 0) break;
+                                if (itemChoice < 1 || itemChoice > sameTypeItems.size()) {
+                                    System.out.println(ColourManager.erColour() + "Invalid selection. Please try again." + ColourManager.reColour()); // Error
+                                    continue;
+                                }
+
+                                MenuItem selectedItem = sameTypeItems.get(itemChoice - 1);
+                                while (true) {
+                                    try {
+                                        System.out.printf(ColourManager.ouColour() + "Enter Extra Fee for Exchanging to %s: RM", selectedItem.getName()); // Ask Input
+                                        System.out.print(ColourManager.reColour());
+                                        System.out.print(ColourManager.inColour());
+                                        String feeInput = read.nextLine().trim(); // Input
+                                        System.out.print(ColourManager.reColour());
+
+                                        if (feeInput.isEmpty()) {
+                                            System.out.println(ColourManager.erColour() + "Fee cannot be empty!" + ColourManager.reColour()); // Error
+                                            continue;
+                                        }
+
+                                        double fee = Double.parseDouble(feeInput);
+                                        if (fee < 0) {
+                                            System.out.println(ColourManager.erColour() + "Fee cannot be negative!" + ColourManager.reColour()); // Error
+                                            continue;
+                                        }
+
+                                        newExchangeList.add(selectedItem);
+                                        newExchangeFees.add(fee);
+                                        System.out.println(ColourManager.suColour() + "Exchange option added!" + ColourManager.reColour()); // Success
+                                        break;
+                                    } catch (NumberFormatException e) {
+                                        System.out.println(ColourManager.erColour() + "Invalid fee format. Please enter a valid number." + ColourManager.reColour()); // Error
+                                    }
+                                }
+                            } catch (NumberFormatException e) {
+                                System.out.println(ColourManager.erColour() + "Invalid selection. Please enter a number." + ColourManager.reColour()); // Error
+                            }
+                        }
+
+                        combo.getExchangeList().set(i, newExchangeList);
+                        combo.getExchangeFees().set(i, newExchangeFees);
+                    }
+                    break;
+                } catch (Exception e) {
+                    System.out.println(ColourManager.erColour() + "An Error Occurred: " + e.getMessage() + ColourManager.reColour()); // Error
                 }
-
-                combo.getExchangeList().set(i, newExchangeList);
-                combo.getExchangeFees().set(i, newExchangeFees);
             }
         }
-        System.out.println(ColourManager.suColour() + "Combo exchange options updated successfully!" + ColourManager.reColour());
+        System.out.println(ColourManager.suColour() + "Combo exchange options updated successfully!" + ColourManager.reColour()); // Success
     }
 
     @Override
@@ -623,7 +700,7 @@ public class AdminMenu extends Menu{
         System.out.println(ColourManager.ouColour() + "<Admin>" + ColourManager.reColour()); // Output
         super.printMenuOption();
         System.out.print(ColourManager.opColour());
-        System.out.println("4. Manage Menu Items");
+        System.out.println("4. Manage Menu Items"); // Option
         System.out.println("5. View Most Popular Items");
         System.out.println("6. Filter Orders by Date");
         System.out.println("7. Generate Daily Sales Report");

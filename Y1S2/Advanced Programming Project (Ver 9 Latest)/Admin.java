@@ -20,13 +20,14 @@ public class Admin {
         // Get name with duplicate check.
         String name;
         while (true) {
+            System.out.println(ColourManager.ouColour() + "\n=============== Admin Sign Up ================\n" + ColourManager.reColour()); // Output
             System.out.printf(ColourManager.ouColour() + "Enter Admin Name: " + ColourManager.reColour()); // Ask Input
             System.out.print(ColourManager.inColour());
             name = read.nextLine().trim(); // Input
             System.out.print(ColourManager.reColour());
             
             if (name.isEmpty()) {
-                System.out.println(ColourManager.erColour() + "Name cannot be empty!\n" + ColourManager.reColour()); // Error
+                System.out.println(ColourManager.erColour() + "\nName cannot be empty!" + ColourManager.reColour()); // Error
                 continue;
             }
             
@@ -60,7 +61,7 @@ public class Admin {
         }
 
         // Verify registration code.
-        System.out.printf(ColourManager.ouColour() + "Enter registration code: " + ColourManager.reColour()); // Ask Input
+        System.out.printf(ColourManager.ouColour() + "Enter Registration Code: " + ColourManager.reColour()); // Ask Input
         System.out.print(ColourManager.inColour());
         String codeInput = read.nextLine(); // Input
         System.out.print(ColourManager.reColour());

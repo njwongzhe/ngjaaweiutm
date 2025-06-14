@@ -27,7 +27,7 @@ public class Staff {
             System.out.print(ColourManager.reColour());
             
             if (name.isEmpty()) {
-                System.out.println(ColourManager.erColour() + "Name cannot be empty!\n" + ColourManager.reColour()); // Error
+                System.out.println(ColourManager.erColour() + "\nName cannot be empty!" + ColourManager.reColour()); // Error
                 continue;
             }
             
@@ -61,7 +61,7 @@ public class Staff {
         }
 
         // Verify registration code.
-        System.out.printf(ColourManager.ouColour() + "Enter registration code: " + ColourManager.reColour()); // Ask Input
+        System.out.printf(ColourManager.ouColour() + "Enter Registration Code: " + ColourManager.reColour()); // Ask Input
         System.out.print(ColourManager.inColour());
         String codeInput = read.nextLine(); // Input
         System.out.print(ColourManager.reColour());

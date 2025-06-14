@@ -259,7 +259,6 @@ public class Menu {
                 switch (choice) {
                     case 0:
                         System.out.println(ColourManager.suColour() + "\nExiting..." + ColourManager.reColour()); // Success
-                        System.out.println(ColourManager.ouColour() + "\n==============================================" + ColourManager.reColour()); // Output
                         break;
                     case 1: 
                         this.printMenuItems();

@@ -350,5 +350,3 @@ public class Combo extends MenuItem {
         return exchangeFees;
     }
 }
-
-

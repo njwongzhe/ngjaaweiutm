@@ -796,4 +796,3 @@ public class AdminMenu extends Menu{
         return true;
     }
 }
-

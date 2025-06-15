@@ -19,15 +19,16 @@ food_categories.csv  | Store the subcategories of main category Food.
 foods.csv            | Store the menu items of main categories Food.
 orders.csv           | Store the paid & unpaid orders.
 staff.csv            | Store the Username & Password of staff.
-*** The system will show error during execution if the file is not exist.
-    Please restart the system and the file and folder will automatically 
-    generate.
+*** The system will show error during execution if the file does not exist.
+    Please restart the system in this case, so the file and folder will 
+    automatically be generated.
 
 <Source Code>
-*** Please ensure the following source code is exist in the folder :
+*** Please ensure the following source codes exist in the folder :
 Admin.java            |
 AdminMenu.java        |
 CategoryManager.java  |
+ColourManager.java    |
 Combo.java            |
 Customer.java         |
 CustomerMenu.java     |

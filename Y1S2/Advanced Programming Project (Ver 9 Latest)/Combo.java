@@ -151,13 +151,15 @@ public class Combo extends MenuItem {
         
         while (true) {
             // Display available items excluding other combos.
-            System.out.println("\nAvailable Items:");
-            for (MenuItem item : allItems) {
+            System.out.println(ColourManager.ouColour() + "\nAvailable Items:" + ColourManager.reColour()); // Output
+            System.out.print(ColourManager.opColour());
+            for (MenuItem item : allItems) { // Option
                 if (!(item instanceof Combo)) {
                     System.out.printf("%s. %s (RM%.2f)\n", 
                         item.getMenuItemID(), item.getName(), item.getPrice());
                 }
             }
+            System.out.print(ColourManager.reColour());
             
             System.out.printf(ColourManager.ouColour() + "\nEnter MenuItem ID or Name to Add to the Combo (OR 'done' to Finish): " + ColourManager.reColour());
             System.out.print(ColourManager.inColour());
@@ -198,10 +200,10 @@ public class Combo extends MenuItem {
                     quantity = Integer.parseInt(read.nextLine());
                     System.out.print(ColourManager.reColour());
                     if (quantity <= 0) {
-                        System.out.println(ColourManager.erColour() + "Quantity must be positive!" + ColourManager.reColour());
+                        System.out.println(ColourManager.erColour() + "Quantity must be positive!\n" + ColourManager.reColour());
                     }
                 } catch (NumberFormatException e) {
-                    System.out.println(ColourManager.erColour() + "Please enter a valid number!" + ColourManager.reColour());
+                    System.out.println(ColourManager.erColour() + "Please enter a valid number!\n" + ColourManager.reColour());
                 }
             }
             
@@ -240,7 +242,7 @@ public class Combo extends MenuItem {
                 
                 // Add exchange items one by one.
                 while (true) {
-                    System.out.printf(ColourManager.ouColour() + "\nEnter item ID or name to add to exchange list (or 'done' to finish): " + ColourManager.reColour());
+                    System.out.printf(ColourManager.ouColour() + "\nEnter Item ID or Name to Add to Exchange List (OR 'done' to Finish): " + ColourManager.reColour());
                     System.out.print(ColourManager.inColour());
                     String exchItemInput = read.nextLine().trim();
                     System.out.print(ColourManager.reColour());

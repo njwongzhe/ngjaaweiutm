@@ -67,6 +67,7 @@ public class CustomerMenu extends Menu {
             this.order.setAddress(address);
             customer.addOrder(this.order); // Attach new order
             allOrders.add(this.order);
+            System.out.println(ColourManager.ouColour() + "\n==============================================" + ColourManager.reColour()); // Output
         }
 
         FileManager.saveOrders(allOrders, "orders.csv");
@@ -101,14 +102,13 @@ public class CustomerMenu extends Menu {
         viewOrder();
         
         if (order.getPaymentMethod().equals("Unpaid")) {
-            System.out.println(ColourManager.ouColour() + "\n=================================== Payment Method ===================================\n" + ColourManager.reColour()); // Output
+            System.out.println(ColourManager.ouColour() + "=================================== Payment Method ===================================\n" + ColourManager.reColour()); // Output
             String[] paymentMethods = {
-                "Cash",
-                "Credit Card",
+                "COD",
+                "QR Pay",
                 "Debit Card",
-                "E-Wallet (GrabPay)",
-                "E-Wallet (Touch'n Go)",
-                "DuitNow"
+                "Credit Card",
+                "FPX Transfer",
             };
             
             // Display payment options.
@@ -283,9 +283,8 @@ public class CustomerMenu extends Menu {
         // If not found by ID, try to find by name.
         if (item == null) {
             item = findAvailableItemByName(input);
-            System.out.println();
             if (item == null) {
-                System.out.println(ColourManager.erColour() + "Item not found. Please check the ID or name and try again.\n" + ColourManager.reColour()); // Error
+                System.out.println(ColourManager.erColour() + "\nItem not found. Please check the ID or name and try again.\n" + ColourManager.reColour()); // Error
                 return;
             }
         }
@@ -401,11 +400,11 @@ public class CustomerMenu extends Menu {
     }
 
     private String readRemarks(Scanner read) {
-        System.out.printf(ColourManager.ouColour() + "Any Remarks or Instructions? (Press Enter for None): " + ColourManager.reColour()); // Ask Input
+        System.out.printf(ColourManager.ouColour() + "\nAny Remarks or Instructions? (Press Enter for None): " + ColourManager.reColour()); // Ask Input
         System.out.print(ColourManager.inColour());
         String input = read.nextLine().trim(); // Input
         System.out.print(ColourManager.reColour());
-        return input.isEmpty() ? "No additional remarks" : input;
+        return input.isEmpty() ? "No Additional Remarks" : input;
     }
 
     public void addToOrder(MenuItem item, int quantity, String remarks) {
@@ -474,7 +473,7 @@ public class CustomerMenu extends Menu {
     }
 
     public boolean removeFromOrder(Scanner read) {
-        System.out.printf(ColourManager.ouColour() + "\nEnter Item ID or Name to Remove From Cart: "  + ColourManager.reColour()); // Ask Input
+        System.out.printf(ColourManager.ouColour() + "Enter Item ID or Name to Remove From Cart: "  + ColourManager.reColour()); // Ask Input
         System.out.print(ColourManager.inColour());
         String input = read.nextLine().trim(); // Input
         System.out.print(ColourManager.reColour());

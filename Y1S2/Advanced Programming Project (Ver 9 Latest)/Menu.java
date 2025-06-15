@@ -226,7 +226,6 @@ public class Menu {
                     case 6:
                         System.out.println(ColourManager.ouColour() + "\n================ Order Filter ================\n" + ColourManager.reColour()); // Output
                         ((AdminMenu)this).filterOrdersByDate(read);
-                        System.out.println(ColourManager.ouColour() + "==============================================" + ColourManager.reColour()); // Output
                         break;
                     case 7: 
                         ((AdminMenu)this).findMostPopularItems();

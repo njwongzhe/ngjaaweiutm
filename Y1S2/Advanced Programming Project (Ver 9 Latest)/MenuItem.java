@@ -225,7 +225,7 @@ public abstract class MenuItem {
                 System.out.print(ColourManager.inColour());
                 if (!read.nextLine().toLowerCase().equals("y")) { // Input
                     System.out.print(ColourManager.reColour());
-                    throw new RuntimeException(ColourManager.erColour() + "Item creation cancelled due to duplicate name.\n" + ColourManager.reColour()); // Error
+                    throw new RuntimeException(ColourManager.erColour() + "Item creation cancelled due to duplicate name." + ColourManager.reColour()); // Error
                 }
                 continue;
             }

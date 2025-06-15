@@ -104,7 +104,7 @@ public class AdminMenu extends Menu{
                 MenuItem.recycleMenuItemID(item);
                 items.remove(i);
                 saveMenuItems();
-                System.out.print(ColourManager.suColour() + "Successfully Removed Item: " + item.getName() + " (ID: " + item.getMenuItemID() + ")\n" + ColourManager.reColour()); // Success
+                System.out.print(ColourManager.suColour() + "Successfully Removed Item: " + item.getName() + " (ID: " + item.getMenuItemID() + ")" + ColourManager.reColour()); // Success
                 found = true;
                 break;
             }
@@ -119,7 +119,7 @@ public class AdminMenu extends Menu{
                     MenuItem.recycleMenuItemID(item);
                     items.remove(i);
                     saveMenuItems();
-                    System.out.println(ColourManager.suColour() + "Successfully Removed Item: " + item.getName() + " (ID: " + item.getMenuItemID() + ")\n" + ColourManager.reColour()); // Success
+                    System.out.println(ColourManager.suColour() + "Successfully Removed Item: " + item.getName() + " (ID: " + item.getMenuItemID() + ")" + ColourManager.reColour()); // Success
                     found = true;
                     break;
                 }
@@ -249,10 +249,10 @@ public class AdminMenu extends Menu{
         System.out.println(ColourManager.ouColour() + "\n============= Most Popular Items =============\n" + ColourManager.reColour()); // Output
         for (int i = 0; i < popularItems.size(); i++) {
             if (itemCounts.get(i) == maxCount) {
-                System.out.print("- " + popularItems.get(i).getName());
+                System.out.print("- " + popularItems.get(i).getName() + "\n");
             }
         }
-        System.out.println(ColourManager.suColour() + " ordered " + maxCount + " times.\n" + ColourManager.reColour()); // Success
+        System.out.println(ColourManager.suColour() + "\n Ordered " + maxCount + " Times\n" + ColourManager.reColour()); // Success
     }
 
     public void filterOrdersByDate(Scanner read) {
@@ -264,13 +264,14 @@ public class AdminMenu extends Menu{
         // Validate date format.
         if (!dateInput.matches("\\d{2}-\\d{2}-\\d{4}")) {
             System.out.println(ColourManager.erColour() + "\nInvalid date format. Please use dd-MM-yyyy format.\n" + ColourManager.reColour()); // Error
+            System.out.println(ColourManager.ouColour() + "==============================================" + ColourManager.reColour()); // Output
             return;
         }
         
         ArrayList<Order> allOrders = FileManager.loadOrders("orders.csv", this.items);
         boolean foundOrders = false;
         
-        System.out.println(ColourManager.ouColour() + "\n============ Orders on " + dateInput + " ============\n" + ColourManager.reColour()); // Output
+        System.out.println(ColourManager.ouColour() + "\n============ Orders on " + dateInput + " ============" + ColourManager.reColour()); // Output
         for (Order order : allOrders) {
             String[] dateTimeParts = order.getDateTime().split(" ");
             String orderDate = dateTimeParts[0]; // dd-MM-yyyy
@@ -279,7 +280,7 @@ public class AdminMenu extends Menu{
             if (orderDate.equals(dateInput) && !order.getPaymentMethod().toLowerCase().equals("unpaid")) {
                 foundOrders = true;
                 
-                System.out.println("Order ID: " + order.getOrderID());
+                System.out.println("\nOrder ID: " + order.getOrderID());
                 System.out.println("Customer Name: " + order.getCustomer().getName());
                 System.out.println("Phone: " + order.getCustomer().getPhone());
                 System.out.println("Address: " + order.getAddress());
@@ -299,12 +300,13 @@ public class AdminMenu extends Menu{
                 // Print order footer.
                 System.out.printf("Total Amount: RM %.2f\n", order.getTotal());
                 System.out.println("Payment Method: " + order.getPaymentMethod());
-                System.out.println("\n================================================\n");
+                System.out.println(ColourManager.ouColour() + "\n==============================================" + ColourManager.reColour()); // Output
             }
         }
         
         if (!foundOrders) {
             System.out.println(ColourManager.erColour() + "\nNo orders found for this date.\n" + ColourManager.reColour());
+            System.out.println(ColourManager.ouColour() + "==============================================" + ColourManager.reColour()); // Output
         }
     }
 

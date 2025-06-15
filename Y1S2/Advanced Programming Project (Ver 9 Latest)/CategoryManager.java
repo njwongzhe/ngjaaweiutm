@@ -36,7 +36,7 @@ public class CategoryManager {
     }
 
     public static void printCategories() {
-        System.out.println(ColourManager.ouColour() + "\n<Food Categories>" + ColourManager.reColour()); // Output
+        System.out.println(ColourManager.ouColour() + "<Food Categories>" + ColourManager.reColour()); // Output
         System.out.print(ColourManager.opColour());
         for (int i = 0; i < foodCategories.size(); i++) { // Option
             System.out.printf("%d. %s\n", i + 1, foodCategories.get(i));
@@ -44,7 +44,7 @@ public class CategoryManager {
         System.out.print(ColourManager.reColour());
         System.out.println();
         
-        System.out.println(ColourManager.ouColour() + "\n<Drink Categories>" + ColourManager.reColour()); // Output
+        System.out.println(ColourManager.ouColour() + "<Drink Categories>" + ColourManager.reColour()); // Output
         System.out.print(ColourManager.opColour());
         for (int i = 0; i < drinkCategories.size(); i++) { // Option
             System.out.printf("%d. %s\n", foodCategories.size() + i + 1, drinkCategories.get(i)); 
@@ -52,7 +52,7 @@ public class CategoryManager {
         System.out.print(ColourManager.reColour());
         System.out.println();
 
-        System.out.println(ColourManager.ouColour() + "\n<Combo>" + ColourManager.reColour()); // Output
+        System.out.println(ColourManager.ouColour() + "<Combo>" + ColourManager.reColour()); // Output
         System.out.print(ColourManager.opColour());
         System.out.printf("%d. Combo\n", foodCategories.size() + drinkCategories.size() + 1); // Option
         System.out.print(ColourManager.reColour());

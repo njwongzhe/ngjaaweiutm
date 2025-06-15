@@ -1,0 +1,28 @@
+======================================================================================
+                                       Receipt
+======================================================================================
+Order ID        : 2
+Customer Name   : MUHD ALI
+Customer Phone  : 011-22510765
+Delivery Address: 115-M23, KTDI, UTM JB.
+Date            : 14-06-2025
+Time            : 21:53:03
+
+Payment Method  : QR Pay
+--------------------------------------------------------------------------------------
+Code     Item                                       Qty      Price        Subtotal(RM)
+--------------------------------------------------------------------------------------
+C14      BUDDY MEAL COMBO                             1       32.8               32.80
+         4 x MB CRISPY CHICKEN                                                        
+         4 x CHICKEN NUGGETS                                                          
+         2 x FRENCH FRIES (R)                                                         
+         1 x VEGETABLE SALAD (R)                                                      
+         2 x SOFT DRINKS (R)                                                          
+         Remarks: No Additional Remarks                                               
+F10      NASI AYAM MB                                 1       8.35                8.35
+         Remarks: No Additional Remarks                                               
+D5       ICED LEMON TEA                               1       4.25                4.25
+         Remarks: No Additional Remarks                                               
+--------------------------------------------------------------------------------------
+TOTAL                                                                            45.40
+======================================================================================

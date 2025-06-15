@@ -16,27 +16,30 @@ Food,MB Crispy Chicken x2,7.50,F15,Chicken,2pcs MB Crispy Chicken,2,true
 Food,MB Crispy Chicken x5,18.55,F16,Chicken,5pcs MB Crispy Chicken,5,true
 Food,MB Crispy Chicken x9,33.00,F17,Chicken,9pcs MB Crispy Chicken,9,true
 Food,MB Crispy Chicken x15,53.75,F18,Chicken,15pcs MB Crispy Chicken,15,true
-Food,Chicken Nuggets 6pcs,6.60,F19,Side Order,6pcs Chicken Nuggets,6,true
-Food,Chicken Nuggets 12pcs,11.95,F20,Side Order,12pcs Chicken Nuggets,12,true
-Food,Fish Nuggets 6pcs,6.60,F21,Side Order,6pcs Fish Nuggets,6,true
-Food,Fish Nuggets 12pcs,11.95,F22,Side Order,12pcs Fish Nuggets,12,true
-Food,Prawn Fingers 6pcs,6.60,F23,Side Order,6pcs Prawn Fingers,6,true
-Food,Prawn Fingers 12pcs,11.95,F24,Side Order,12pcs Prawn Fingers,12,true
-Food,Chicken Fillets,3.70,F25,Side Order,1 x Chicken Fillets,1,true
-Food,Chick-A-Pops,6.60,F26,Side Order,1 x Chick-A-Pops,1,true
-Food,French Fries (R),3.45,F27,Side Order,1 x French Fries (R),1,true
-Food,French Fries (L),4.40,F28,Side Order,1 x French Fries (L),1,true
-Food,Mambo Fries (R),3.45,F29,Side Order,1 x Mambo Fries (R),1,true
-Food,Mashed Potato (R),2.40,F30,Side Order,1 x Mashed Potato (R),1,true
-Food,Mashed Potato (L),5.55,F31,Side Order,1 x Mashed Potato (L),1,true
-Food,Hawaiian Coleslaw (R),2.40,F32,Side Order,1 x Hawaiian Coleslaw (R),1,true
-Food,Hawaiian Coleslaw (L),5.55,F33,Side Order,1 x Hawaiian Coleslaw (L),1,true
-Food,Vegetable Salad (R),2.40,F34,Side Order,1 x Vegetable Salad (R),1,true
-Food,Vegetable Salad (L),5.55,F35,Side Order,1 x Vegetable Salad (L),1,true
-Food,Acar (R),2.40,F36,Side Order,1 x Acar (R),1,true
-Food,Acar (L),5.55,F37,Side Order,1 x Acar (L),1,true
-Food,Mushroom Soup,3.30,F38,Side Order,1 x Mushroom Soup,1,true
-Food,Fragrant Rice,2.40,F39,Side Order,1 x Fragrant Rice,1,true
-Food,MB Rice,2.40,F40,Side Order,1 x MB Rice,1,true
-Food,Bun,1.20,F41,Side Order,1 x Bun,1,true
-Food,Cheese,1.00,F42,Side Order,1 x Cheese,1,true
+Food,Chicken Nuggets,0.00,F19,Side Order,1pcs Chicken Nuggets,1,false
+Food,Chicken Nuggets 6pcs,6.60,F20,Side Order,6pcs Chicken Nuggets,6,true
+Food,Chicken Nuggets 12pcs,11.95,F21,Side Order,12pcs Chicken Nuggets,12,true
+Food,Fish Nuggets,0.00,F22,Side Order,1pcs Fish Nuggets,1,false
+Food,Fish Nuggets 6pcs,6.60,F23,Side Order,6pcs Fish Nuggets,6,true
+Food,Fish Nuggets 12pcs,11.95,F24,Side Order,12pcs Fish Nuggets,12,true
+Food,Prawn Fingers,0.00,F25,Side Order,1pcs Prawn Fingers,1,false
+Food,Prawn Fingers 6pcs,6.60,F26,Side Order,6pcs Prawn Fingers,6,true
+Food,Prawn Fingers 12pcs,11.95,F27,Side Order,12pcs Prawn Fingers,12,true
+Food,Chicken Fillets,0.00,F28,Side Order,1pcs Chicken Fillets,1,false
+Food,Chicken Fillets 2pcs,3.70,F29,Side Order,2pcs Chicken Fillets,1,true
+Food,Chick-A-Pops 15pcs,6.60,F30,Side Order,15pcs Chick-A-Pops,1,true
+Food,French Fries (R),3.45,F31,Side Order,1 x French Fries (R),1,true
+Food,French Fries (L),4.40,F32,Side Order,1 x French Fries (L),1,true
+Food,Mambo Fries (R),3.45,F33,Side Order,1 x Mambo Fries (R),1,true
+Food,Mashed Potato (L),5.55,F34,Side Order,1 x Mashed Potato (L),1,true
+Food,Hawaiian Coleslaw (R),2.40,F36,Side Order,1 x Hawaiian Coleslaw (R),1,true
+Food,Hawaiian Coleslaw (L),5.55,F37,Side Order,1 x Hawaiian Coleslaw (L),1,true
+Food,Vegetable Salad (R),2.40,F38,Side Order,1 x Vegetable Salad (R),1,true
+Food,Vegetable Salad (L),5.55,F39,Side Order,1 x Vegetable Salad (L),1,true
+Food,Acar (R),2.40,F40,Side Order,1 x Acar (R),1,true
+Food,Acar (L),5.55,F41,Side Order,1 x Acar (L),1,true
+Food,Mushroom Soup,3.30,F42,Side Order,1 x Mushroom Soup,1,true
+Food,Fragrant Rice,2.40,F43,Side Order,1 x Fragrant Rice,1,true
+Food,MB Rice,2.40,F44,Side Order,1 x MB Rice,1,true
+Food,Bun 2pcs,1.20,F45,Side Order,2pcs Bun,1,true
+Food,Cheese,1.00,F46,Side Order,1 x Cheese,1,true

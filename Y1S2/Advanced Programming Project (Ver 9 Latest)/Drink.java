@@ -91,10 +91,11 @@ public class Drink extends MenuItem {
         drink.setQuantity(readValidNumber(read, 1, Integer.MAX_VALUE));
         
         // Read category.
+        System.out.println();
         drink.setCategory(CategoryManager.selectDrinkCategory(read));
 
         // Drink-specific details.
-        System.out.printf(ColourManager.ouColour() + "Enter Drink Description (Press ENTER for Default): " + ColourManager.reColour()); // Ask Input
+        System.out.printf(ColourManager.ouColour() + "\nEnter Drink Description (Press ENTER for Default): " + ColourManager.reColour()); // Ask Input
         System.out.print(ColourManager.inColour());
         String description = read.nextLine().trim(); // Input
         System.out.print(ColourManager.reColour());

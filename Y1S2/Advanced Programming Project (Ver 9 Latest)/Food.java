@@ -91,6 +91,7 @@ public class Food extends MenuItem {
         food.setQuantity(readValidNumber(read, 1, Integer.MAX_VALUE));
         
         // Read category.
+        System.out.println();
         food.setCategory(CategoryManager.selectFoodCategory(read));
 
         // Food-specific details.

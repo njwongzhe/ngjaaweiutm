@@ -143,21 +143,21 @@ public class Menu {
         } while (true);
 
         switch (choice) {
-        case 1:
-            System.out.println(ColourManager.ouColour() + "\n==============================================" + ColourManager.reColour()); // Output
-            return StaffMenu.loginOrSignup(read);
-        case 2:
-            System.out.println(ColourManager.ouColour() + "\n==============================================" + ColourManager.reColour()); // Output
-            return AdminMenu.loginOrSignup(read);
-        // Not yet open for Customer Self-Order.
-        /*
-        case 3:
-            Customer customer = Customer.readCustomerInfo(read); 
-            return new CustomerMenu(customer);
-        */
-        default:
-            return null;
-    }
+            case 1:
+                System.out.println(ColourManager.ouColour() + "\n==============================================" + ColourManager.reColour()); // Output
+                return StaffMenu.loginOrSignup(read);
+            case 2:
+                System.out.println(ColourManager.ouColour() + "\n==============================================" + ColourManager.reColour()); // Output
+                return AdminMenu.loginOrSignup(read);
+            // Not yet open for Customer Self-Order.
+            /*
+            case 3:
+                Customer customer = Customer.readCustomerInfo(read); 
+                return new CustomerMenu(customer);
+            */
+            default:
+                return null;
+        }
     }
 
     public void printMenuOption() {
@@ -217,7 +217,7 @@ public class Menu {
                         this.getItemByCategory(category);
                         break;
                     case 4: 
-                        ((AdminMenu) this).manageMenuItems(read);
+                        ((AdminMenu)this).manageMenuItems(read);
                         break;
                     case 5:
                         ((AdminMenu)this).manageCategories(read);
@@ -282,18 +282,18 @@ public class Menu {
                         break;
                     case 4:
                         System.out.println(ColourManager.ouColour() + "\n===================================== View Order =====================================\n" + ColourManager.reColour()); // Output
-                        ((CustomerMenu) this).viewOrder();
+                        ((CustomerMenu)this).viewOrder();
                         System.out.println(ColourManager.ouColour() + "======================================================================================" + ColourManager.reColour()); // Output
                         break;
                     case 5:
                         System.out.println(ColourManager.ouColour() + "\n============= Add Item to Order ==============\n" + ColourManager.reColour()); // Output
-                        ((CustomerMenu) this).addOrderItem(read);
+                        ((CustomerMenu)this).addOrderItem(read);
                         System.out.println(ColourManager.ouColour() + "==============================================" + ColourManager.reColour()); // Output
                         System.out.print(ColourManager.reColour());
                         break;
                     case 6:
                         System.out.println(ColourManager.ouColour() + "\n==================================== Remove Order ====================================\n" + ColourManager.reColour()); // Output
-                        ((CustomerMenu) this).viewOrder();  // Show current cart items
+                        ((CustomerMenu)this).viewOrder();  // Show current cart items
                         boolean removed = ((CustomerMenu) this).removeFromOrder(read);
                         if (removed) {
                             System.out.println(ColourManager.suColour() + "Item removed successfully.\n" + ColourManager.reColour()); // Success
@@ -301,7 +301,7 @@ public class Menu {
                         System.out.println(ColourManager.ouColour() + "======================================================================================" + ColourManager.reColour()); // Output
                         break;
                     case 7: 
-                        ((CustomerMenu) this).makePayment(read);
+                        ((CustomerMenu)this).makePayment(read);
                         break;
                     default:
                         System.out.println(ColourManager.erColour() + "Invalid choice." + ColourManager.reColour()); // Error

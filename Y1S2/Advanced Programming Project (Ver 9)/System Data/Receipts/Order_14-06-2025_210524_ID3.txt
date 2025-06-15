@@ -1,0 +1,25 @@
+======================================================================================
+                                       Receipt
+======================================================================================
+Order ID        : 3
+Customer Name   : SARAH LEE
+Customer Phone  : 019-1190089
+Delivery Address: 210-L21, KTHO, UTM JB.
+Date            : 14-06-2025
+Time            : 21:05:24
+
+Payment Method  : Cash
+--------------------------------------------------------------------------------------
+Code     Item                                       Qty      Price        Subtotal(RM)
+--------------------------------------------------------------------------------------
+F1       CHICKEN BURGER                               1       4.85                4.85
+         Remarks: No additional remarks                                               
+C5       LUCKY PLATE SPECIAL COMBO                    2       11.9               23.80
+         1 x LUCKY PLATE                                                              
+         1 x SOFT DRINKS(R)                                                           
+         Remarks: No additional remarks                                               
+D11      WHITE COFFEE                                 1       3.25                3.25
+         Remarks: No additional remarks                                               
+--------------------------------------------------------------------------------------
+TOTAL                                                                            31.90
+======================================================================================

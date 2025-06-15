@@ -51,14 +51,13 @@ public class ColourManager {
         while (true) {
             System.out.println(currentOutputColour + "\n==============================================" + RESET); // Output
             System.out.println(currentOutputColour + "\n<CLI Colour Customization>"); // Output
+            System.out.println(currentOptionColour + "0. Save and Exit");
             System.out.println(currentOptionColour + "1. Change System Main Colour       -> " + currentOutputColour + "Current Colour Sample Text" + RESET); // Option
             System.out.println(currentOptionColour + "2. Change Input Colour             -> " + currentInputColour + "Current Colour Sample Text" + RESET);
             System.out.println(currentOptionColour + "3. Change Avaliable Option Colour  -> " + currentOptionColour + "Current Colour Sample Text" + RESET);
             System.out.println(currentOptionColour + "4. Change Operation Success Colour -> " + currentSuccessColour + "Current Colour Sample Text" + RESET);
             System.out.println(currentOptionColour + "5. Change Operation Error Colour   -> " + currentErrorColour + "Current Colour Sample Text " + RESET);
             System.out.println(currentOptionColour + "6. Reset to Default Colors");
-            System.out.println(currentOptionColour + "0. Save and Exit");
-            
             System.out.print(currentOutputColour + "Select an Option (0 - 6): " + RESET); // Ask Input
             System.out.print(currentInputColour);
             String input = read.nextLine().trim(); // Input

@@ -1,0 +1,4 @@
+1. manage promocode (AdminMenu)
+2. view permanent promo code, find promo code (StaffMenu)
+3. update make payment and print receipt (CustomerMenu)
+4. update daily report (AdminMenu)

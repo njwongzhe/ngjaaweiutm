@@ -1,0 +1,31 @@
+======================================================================================
+                                       Receipt
+======================================================================================
+Order ID        : 4
+Customer Name   : GUI GUANYU
+Customer Phone  : 012-9307921
+Delivery Address: DAKHA
+Date            : 17-06-2025
+Time            : 14:39:02
+
+Payment Method  : Debit Card
+Promo Code      : UOZVED
+--------------------------------------------------------------------------------------
+Code     Item                                       Qty      Price        Subtotal(RM)
+--------------------------------------------------------------------------------------
+C1       CHICKEN BURGER COMBO                         1        8.8                8.80
+         1 x CHICKEN BURGER                                                           
+         1 x FRENCH FRIES (R)                                                         
+         1 x SOFT DRINKS (R)                                                          
+         Remarks: No Additional Remarks                                               
+C17      TEST                                         1       25.0               25.00
+         2 x Hotouch Burger [extra fee: RM0.00                                        
+         ]                                                                            
+         1 x SOFT DRINKS (R)                                                          
+         2 x ICE CREAM (1 SCOOP)                                                      
+         Remarks: No Additional Remarks                                               
+--------------------------------------------------------------------------------------
+TOTAL                                                                            33.80
+DISCOUNT                                                                         -1.69
+TOTAL AFTER DISCOUNT                                                             32.11
+======================================================================================

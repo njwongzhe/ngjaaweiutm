@@ -1,0 +1,18 @@
+Combo,Chicken Burger Combo,8.80,C1,1 x CHICKEN BURGER||1 x FRENCH FRIES (R)||1 x SOFT DRINKS (R),F1:1:false;F31:1:false;D1:1:true:D4-1.0|D5-1.0|D8-1.0;,true
+Combo,Hotouch Burger Combo,8.80,C2,1 x HOTOUCH BURGER||1 x FRENCH FRIES (R)||1 x SOFT DRINKS (R),F2:1:false;F31:1:false;D1:1:true:D4-1.0|D5-1.0|D8-1.0;,true
+Combo,Tower Burger Combo,8.80,C3,1 x TOWER BURGER||1 x FRENCH FRIES (R)||1 x SOFT DRINKS (R),F3:1:false;F31:1:false;D1:1:true:D4-1.0|D5-1.0|D8-1.0;,true
+Combo,Fish Fillet Burger Combo,8.80,C4,1 x FISH FILLET BURGER||1 x FRENCH FRIES (R)||1 x SOFT DRINKS (R),F4:1:false;F31:1:false;D1:1:true:D4-1.0|D5-1.0|D8-1.0;,true
+Combo,Lucky Plate Special Combo,8.80,C5,1 x LUCKY PLATE||1 x SOFT DRINKS (R),F5:1:false;D1:1:true:D4-1.0|D5-1.0|D8-1.0;,true
+Combo,Chick-A-Licious Special Combo,8.80,C6,1 x CHICK-A-LICIOUS||1 x SOFT DRINKS (R),F6:1:false;D1:1:true:D4-1.0|D5-1.0|D8-1.0;,true
+Combo,Chick-A-Mix Special Combo,8.80,C7,1 x CHICK-A-MIX||1 x SOFT DRINKS (R),F7:1:false;D1:1:true:D4-1.0|D5-1.0|D8-1.0;,true
+Combo,Fish'n'Chips Special Combo,8.80,C8,1 x FISH'N'CHIPS||1 x SOFT DRINKS (R),F8:1:false;D1:1:true:D4-1.0|D5-1.0|D8-1.0;,true
+Combo,Nasi Marrybrown Classic Combo,8.80,C9,1 x NASI MARRYBROWN||1 x SOFT DRINKS (R),F9:1:false;D1:1:true:D4-1.0|D5-1.0|D8-1.0;,true
+Combo,Nasi Ayam MB Classic Combo,8.80,C10,1 x NASI AYAM MB||1 x SOFT DRINKS (R),F10:1:false;D1:1:true:D4-1.0|D5-1.0|D8-1.0;,true
+Combo,Mi Kari MB Classic Combo,8.80,C11,1 x MI KARI MB||1 x SOFT DRINKS (R),F11:1:false;D1:1:true:D4-1.0|D5-1.0|D8-1.0;,true
+Combo,Chicken Porridge Classic Combo,8.80,C12,1 x CHICKEN PORRIDGE||1 x SOFT DRINKS (R),F12:1:false;D1:1:true:D4-1.0|D5-1.0|D8-1.0;,true
+Combo,Seafood Porridge Classic Combo,8.80,C13,1 x SEAFOOD PORRIDGE||1 x SOFT DRINKS (R),F13:1:false;D1:1:true:D4-1.0|D5-1.0|D8-1.0;,true
+Combo,Buddy Meal,32.80,C14,4 x MB CRISPY CHICKEN||2 x FRENCH FRIES (R)||4 x CHICKEN NUGGETS||1 x VEGETABLE SALAD (R)||2 x SOFT DRINKS (R),F14:4:false;F31:2:false;F19:4:false;F38:1:false;D1:2:false;,true
+Combo,Variety Combo,56.80,C15,6 x MB CRISPY CHICKEN||4 x PRAWN FINGERS||4 x FISH NUGGETS||4 x CHICKEN FILLETS||1 x VEGETABLE SALAD (L)||1 x MASHED POTATO (L)||4 x SOFT DRINKS (R),F14:6:false;F25:4:false;F22:4:false;F28:4:false;F39:1:false;F34:1:false;D1:4:false;,true
+Combo,Kiddy Meals Combo A,9.90,C16,1 x CHICKEN BURGER||1 x FRENCH FRIES (R)||1 x ICED MILO (S),F1:1:false;F31:1:false;D7:1:false;,true
+Combo,Kiddy Meals Combo B,9.90,C17,1 x MB CRISPY CHICKEN||1 x FRENCH FRIES (R)||1 x ICED MILO (S),F14:1:false;F31:1:false;D7:1:false;,true
+Combo,Kiddy Meals Combo C,9.90,C18,1 x CHICKEN NUGGETS||1 x FRENCH FRIES (R)||1 x ICED MILO (S),F19:4:false;F31:1:false;D7:1:false;,true

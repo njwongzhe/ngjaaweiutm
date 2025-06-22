@@ -1,4 +1,4 @@
-Fast-Food Order Record Management System (Ver 11)
+Fast-Food Order Record Management System (Ver 12)
 Developed by Group 8 | SCSE1224-03 Advanced Programming
 
 ============================= User Manual =============================

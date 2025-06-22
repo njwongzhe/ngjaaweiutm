@@ -1,4 +1,4 @@
-Fast-Food Order Record Management System (Ver 11)
+Fast-Food Order Record Management System (Ver 14)
 Developed by Group 8 | SCSE1224-03 Advanced Programming
 
 ============================= User Manual =============================
@@ -18,6 +18,7 @@ drinks.csv           | Store the menu items of main categories Drink.
 food_categories.csv  | Store the subcategories of main category Food.
 foods.csv            | Store the menu items of main categories Food.
 orders.csv           | Store the paid & unpaid orders.
+promocodes.csv       | Store the promocodes.
 staff.csv            | Store the Username & Password of staff.
 *** The system will show error during execution if the file does not exist.
     Please restart the system in this case, so the file and folder will 
@@ -42,7 +43,7 @@ MenuFactory.java      |
 MenuItem.java         |
 Order.java            |
 OrderItem.java        |
+PromoCode.java        |
 SalesItem.java        |
 Staff.java            |
 StaffMenu.java        |
-

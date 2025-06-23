@@ -31,31 +31,33 @@ public abstract class Menu {
     }
 
     public void showItemByName(String input) {
-        boolean result = false;
         boolean isAdmin = this instanceof AdminMenu;
         
         System.out.println();
 
-        for(MenuItem item : items) {
-            if ((isAdmin || item.isAvailable()) && item.getMenuItemID().toLowerCase().equals(input.toLowerCase())) {
+        items.stream()
+            .filter(item -> (isAdmin || item.isAvailable()))
+            .filter(item -> item.getMenuItemID().equalsIgnoreCase(input))
+            .findFirst()
+            .ifPresent(item -> {
                 System.out.println(item.getMenuItemID() + ". " + item.getName() + String.format(" - RM%.2f", item.getPrice()));
                 item.printDescription(isAdmin);
                 System.out.println();
-                return;
-            }
-        }
+            });
 
-        for(MenuItem item : items) {
-            if ((isAdmin || item.isAvailable()) && item.getName().toLowerCase().contains(input.toLowerCase())) {
+        List<MenuItem> nameMatches = items.stream()
+            .filter(item -> (isAdmin || item.isAvailable()))
+            .filter(item -> item.getName().toLowerCase().contains(input.toLowerCase()))
+            .collect(Collectors.toList());
+
+        if (!nameMatches.isEmpty()) {
+            nameMatches.forEach(item -> {
                 System.out.println(item.getMenuItemID() + ". " + item.getName() + String.format(" - RM%.2f", item.getPrice()));
                 item.printDescription(isAdmin);
                 System.out.println();
-                return;
-            }
-        }
-
-        if(!result) {
-            System.out.println(ColourManager.erColour() + "No items found that start with \"" + input + "\".\n" + ColourManager.reColour()); // Error
+            });
+        } else if (items.stream().noneMatch(item -> item.getMenuItemID().equalsIgnoreCase(input))) {
+            System.out.println(ColourManager.erColour() + "No items found matching \"" + input + "\".\n" + ColourManager.reColour()); // Error
         }
     }
 

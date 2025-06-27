@@ -1,7 +1,7 @@
 Fast-Food Order Record Management System (Ver 14)
 Developed by Group 8 | SCSE1224-03 Advanced Programming
 
-============================= User Manual =============================
+============================= Simple User Manual =============================
 
 <Account Registration Code>
 Staff Registration Code : 8888

@@ -4,18 +4,6 @@ Developed by Group 4 | SCSE2103-02 Data Structure and Algorithm
 ============================= User Manual =============================
 
 <System Data>
-Receipts             | Store the Order Summary (Receipt) file.
-admins.csv           | Store the Username & Password of admins.
-colour_settings.csv  | Store the interface colour setting.
-combos.csv           | Store the combos in menu.
-customers.csv        | Store the information of the customer.
-drink_categories.csv | Store the subcategories of main category Drink.
-drinks.csv           | Store the menu items of main categories Drink.
-food_categories.csv  | Store the subcategories of main category Food.
-foods.csv            | Store the menu items of main categories Food.
-orders.csv           | Store the paid & unpaid orders.
-staff.csv            | Store the Username & Password of staff.
-
 appointment.txt | Store the appointment history.
 patients.txt    | Store the patient profile.
 queue.txt       | Store the queue list.

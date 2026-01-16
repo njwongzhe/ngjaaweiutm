@@ -163,7 +163,7 @@ async function startTransaction(userId, type) {
     // PETERSON'S ALGORITHM - ENTRY SECTION
     // ========================================================================
     flag[userId] = true; // PETERSON: 'userId' wants to enter critical section.
-    turn = otherId;      // PETERSON: Give turn to other process.
+    turn = otherId;      // PETERSON: Give turn to other process. (otherId = 1 - userId)
 
     btn.disabled = true;
     cancelBtn.disabled = true;

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Peterson's Algoritm - ATM Machine Simulation</title>
+
+    <!--CSS-->
+    <link rel="stylesheet" href="Peterson's Algoritm - ATM Machine Simulation.css">
+</head>
+
+<body>
+    <div class="layout">
+        <div class="topSection">
+            <!--Account Balance-->
+            <div class="balancePart">
+                <h1>ACCOUNT BALANCE</h1>
+                <div class="balanceValue"><span class="currency">RM</span><span id="mainBalance">1000.00</span></div>
+            </div>
+
+            <!--Transaction History-->
+            <div class="historyPart">
+                <h2>📋 Transaction History</h2>
+                <div class="historyList" id="historyList">
+                    <div class="noHistory">No Transactions Yet</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottomSection">
+            <!--User 0-->
+            <div id="user0" class="atmPart">
+                <h2>User 0 (Deposit)</h2>
+
+                <!--Status Message & Progress Bar-->
+                <div class="statusStack">
+                    <div class="statusText" id="status0"></div>
+                    <div class="progressTrack">
+                        <div class="progressFill" id="progress0"></div>
+                    </div>
+                </div>
+
+                <!--Deposit Amount & Control Button-->
+                <div class="controls">
+                    <!--Deposit Amount-->
+                    <input type="number" id="amount0" value="200">
+
+                    <!--Control Button-->
+                    <div class="actionRow">
+                        <button id="btn0" onclick="startTransaction(0, 'deposit')">Deposit</button>
+                        <button class="cancelBtn" id="cancel0" onclick="cancelWait(0)" disabled>Cancel</button>
+                    </div>
+                </div>
+            </div>
+
+            <!--User 1-->
+            <div id="user1" class="atmPart">
+                <h2>User 1 (Withdraw)</h2>
+
+                <!--Status Message & Progress Bar-->
+                <div class="statusStack">
+                    <div class="statusText" id="status1"></div>
+                    <div class="progressTrack">
+                        <div class="progressFill" id="progress1"></div>
+                    </div>
+                </div>
+
+                <!--Deposit Amount & Control Button-->
+                <div class="controls">
+                    <!--Deposit Amount-->
+                    <input type="number" id="amount1" value="200">
+
+                    <!--Control Button-->
+                    <div class="actionRow">
+                        <button id="btn1" onclick="startTransaction(1, 'withdraw')">Withdraw</button>
+                        <button class="cancelBtn" id="cancel1" onclick="cancelWait(1)" disabled>Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--JavaScript-->
+    <script src="Peterson's Algoritm - ATM Machine Simulation.js"></script>
+</body>
+</html>

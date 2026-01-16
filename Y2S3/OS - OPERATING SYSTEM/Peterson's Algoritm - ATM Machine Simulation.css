@@ -1,0 +1,316 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #eef2f3;
+    margin: 0;
+    padding: 20px;
+    overflow-x: hidden;
+}
+
+.layout {
+    width: 100%;
+    max-width: 1400px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.topSection {
+    display: flex;
+    width: 100%;
+    gap: 20px;
+    align-items: stretch;
+}
+
+@media (max-width: 980px) {
+    .topSection {
+        flex-direction: column;
+    }
+    .bottomSection {
+        flex-direction: column;
+    }
+}
+
+.balancePart {
+    background: #2c3e50;
+    color: white;
+    padding: 14px 28px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    flex: 0 0 auto;
+    width: max-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.balancePart h1 {
+    margin: 0;
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+.balanceValue {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 8px;
+    font-size: 2rem;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.balanceValue .currency {
+    opacity: 0.95;
+}
+
+.historyPart {
+    flex: 1;
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.historyPart h2 {
+    margin: 0 0 15px 0;
+    color: #2c3e50;
+    font-size: 1.3rem;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+}
+
+.historyList {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    gap: 15px;
+    padding-bottom: 10px;
+    width: 100%;
+    max-width: 100%;
+    min-height: 0;
+    align-items: flex-start;
+    white-space: nowrap;
+}
+
+.historyList::-webkit-scrollbar {
+    height: 10px;
+}
+
+.historyList::-webkit-scrollbar-track {
+    background: #e0e0e0;
+    border-radius: 10px;
+    margin: 0 10px;
+}
+
+.historyList::-webkit-scrollbar-thumb {
+    background: #9b9b9b;
+    border-radius: 10px;
+}
+
+.historyList::-webkit-scrollbar-thumb:hover {
+    background: #7a7a7a;
+}
+
+.historyItem {
+    min-width: 180px;
+    width: max-content;
+    max-width: none;
+    padding: 4px 8px;
+    border-radius: 8px;
+    border-top: 3px solid #3498db;
+    background: #f8f9fa;
+    font-size: 0.9rem;
+    line-height: 1.15;
+    flex: 0 0 auto;
+    align-self: flex-start;
+    box-sizing: border-box;
+    white-space: nowrap;
+}
+
+.historyItem.deposit {
+    border-top-color: #27ae60;
+    background: #f0fff4;
+}
+
+.historyItem.withdraw {
+    border-top-color: #e74c3c;
+    background: #fff5f5;
+}
+
+.historyItem .time {
+    color: #7f8c8d;
+    font-size: 0.75rem;
+    margin-bottom: 2px;
+}
+
+.historyItem .time:last-child {
+    margin-bottom: 0;
+}
+
+.historyItem .details {
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.historyItem .amount {
+    font-size: 1rem;
+    margin-top: 2px;
+}
+
+.historyItem.deposit .amount {
+    color: #27ae60;
+}
+
+.historyItem.withdraw .amount {
+    color: #e74c3c;
+}
+
+.noHistory {
+    text-align: center;
+    color: #95a5a6;
+    padding: 10px;
+    font-style: italic;
+    min-height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.bottomSection {
+    display: flex;
+    width: 100%;
+    gap: 30px;
+}
+
+.atmPart {
+    flex: 1;
+    border-radius: 15px;
+    padding: 30px;
+    background: white;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    transition: all 0.4s ease;
+    position: relative;
+    border: 4px solid transparent;
+}
+
+/* States */
+.waiting {
+    border-color: #f39c12;
+    background: #fff9f0;
+}
+
+/* States */
+.active {
+    border-color: #27ae60;
+    background: #f0fff4;
+}
+
+/* States */
+.error {
+    border-color: #e74c3c;
+    background: #fff5f5;
+}
+
+.statusStack {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 8px;
+}
+
+.statusText {
+    text-align: center;
+    font-size: 0.95rem;
+    color: #2c3e50;
+    min-height: 18px;
+}
+
+.progressTrack {
+    width: 100%;
+    height: 12px;
+    background: #f0f0f0;
+    border-radius: 999px;
+    overflow: hidden;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.08);
+}
+
+.progressFill {
+    height: 100%;
+    width: 0%;
+    background: #27ae60;
+    transition: width 0.1s linear, background 0.2s ease;
+}
+
+.waiting .progressFill {
+    background: #e67e22;
+    width: 100%;
+}
+
+.error .progressFill {
+    background: #e74c3c;
+    width: 100%;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+input {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+button {
+    padding: 12px;
+    cursor: pointer;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #2980b9;
+}
+
+button:disabled {
+    background: #bdc3c7;
+    cursor: not-allowed;
+}
+
+.actionRow {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.actionRow button {
+    flex: 1;
+}
+
+.cancelBtn {
+    background: #e74c3c;
+}
+
+.cancelBtn:hover {
+    background: #c0392b;
+}
+
+.cancelBtn:disabled {
+    background: #e0b4af;
+}
